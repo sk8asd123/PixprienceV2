@@ -1,0 +1,46 @@
+{
+  "name": "pixprienceplus",
+  "version": "1.0.0",
+  "description": "pictures that show your experiences",
+  "main": "server.js",
+  "directories": {
+    "test": "mocha",
+    "babel": "babel --presets es2015 server.js -o build/main.bundle.js",
+    "build": "webpack",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.1",
+    "passport": "^0.4.0",
+    "sequelize": "^4.32.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "chai": "^4.1.2",
+    "karma": "^2.0.0",
+    "mocha": "^5.0.0",
+    "morgan": "^1.9.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Codevengers/PixprienceV2.git"
+  },
+  "author": "Ryan, Paige, Kiwon, Babak, Nadia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Codevengers/PixprienceV2/issues"
+  },
+  "homepage": "https://github.com/Codevengers/PixprienceV2#readme"
+}
