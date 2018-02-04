@@ -8,6 +8,14 @@ const bodyParser = require ('body-parser'); // JSON Middleware
 const logger = require('morgan'); // REST Logger
 const mongoose = require('mongoose'); // MongoDB ORM
 
+// Passport Validation Packages //
+var cookieParser = require('cookie-parser');
+var expressValidator = require('express-validator');
+var flash = require('connect-flash');
+var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
 
 /////////////////////////////////////////////// /* Variables */ //////////////////////////////////////////////////////////
 let PORT = process.env.PORT || 8080;
@@ -28,6 +36,48 @@ app.use(bodyParser.json()); // Allows For JSON Interactions Between Client & Ser
 app.use(express.static("client/build")); // Serve Static / React Pages
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(cookieParser());
+
+
+app.use(session({ // Express Session
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
+}));
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Express Validator
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
+
+// Connect Flash
+app.use(flash());
+
+// Global Vars for Flash Messages
+app.use(function (req, res, next) {
+  res.locals.success_msg = req.flash('success_msg'); // Global Varibles
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  res.locals.user = req.user || null;
+  next();
+});
 
 /////////////////////////////////////////////// /* Mongoose Configurations*/ //////////////////////////////////////////////////////////
 mongoose.Promise = global.Promise; // Set up promises with mongoose

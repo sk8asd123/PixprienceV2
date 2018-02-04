@@ -3,9 +3,12 @@ import React, {Component} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 /////////////////////////////////////////////// /* Components */ ////////////////////////////////////////////////////////
-import API from "../../utils/API"
-import CommunityPage from "../../components/CommunityPage"
+
 import About from "../../components/About"
+import API from "../../utils/API";
+import CommunityPage from "../../components/CommunityPage";
+import LoginPage from "../../components/LoginPage";
+
 
 
 /////////////////////////////////////////////// /* Main */ //////////////////////////////////////////////////////////
@@ -19,6 +22,8 @@ class Home extends Component {
         {/* Replace Community Page with your Component to Test Your Component */}
         <About />
         {/* <CommunityPage/> */}
+        {/* <LoginPage/> */}
+        <CommunityPage/>
         {/* <Router>
           <switch>
             <Route path="/" component={LoginPage}/>
