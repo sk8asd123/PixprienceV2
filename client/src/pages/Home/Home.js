@@ -3,9 +3,12 @@ import React, {Component} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 /////////////////////////////////////////////// /* Components */ ////////////////////////////////////////////////////////
+
+import About from "../../components/About"
 import API from "../../utils/API";
 import CommunityPage from "../../components/CommunityPage";
 import LoginPage from "../../components/LoginPage";
+
 
 
 /////////////////////////////////////////////// /* Main */ //////////////////////////////////////////////////////////
@@ -17,6 +20,8 @@ class Home extends Component {
     return (
       <React.Fragment>
         {/* Replace Community Page with your Component to Test Your Component */}
+        <About />
+        {/* <CommunityPage/> */}
         {/* <LoginPage/> */}
         <CommunityPage/>
         {/* <Router>
