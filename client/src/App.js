@@ -10,9 +10,9 @@ import Timeline from './pages/Timeline';
 class App extends Component {
   render() {
     return (
-      /*Comment <Home/> and Uncomment Timeline to Test Timeline Page*/
-      <Home/>
-       // <Timeline/>
+      //<Home/>
+  
+      <Timeline/>
     );
   }
 }
