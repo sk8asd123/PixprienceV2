@@ -20,9 +20,8 @@ class Home extends Component {
     return (
       <React.Fragment>
         {/* Replace Community Page with your Component to Test Your Component */}
+        <LoginPage/>
         <About />
-        {/* <CommunityPage/> */}
-        {/* <LoginPage/> */}
         <CommunityPage/>
         {/* <Router>
           <switch>
