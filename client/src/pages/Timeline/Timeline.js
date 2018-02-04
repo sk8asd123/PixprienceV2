@@ -1,17 +1,21 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import {Carousel} from "react-materialize"
+import Pixupload from "../../components/Upload/imageUploader.js"
 
 export default class Timeline extends Component {
 
   render() {
-    return (<div>
+    return (
+
+      <div>
 
       <nav className="teal accent-4" role="navigation">
         <div className="nav-wrapper container">
           <a id="logo-container" href="#" className="brand-logo">Timeline page</a>
           <ul className="right hide-on-med-and-down">
             <li>
+            < Pixupload />
               <a href="#">#3651</a>
             </li>
           </ul>
@@ -24,6 +28,7 @@ export default class Timeline extends Component {
             <i className="material-icons">menu</i>
           </a>
         </div>
+        <div id="pix"> </div>
       </nav>
       <div className="section no-pad-bot" id="index-banner">
         <div className="container">
