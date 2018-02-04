@@ -7,21 +7,29 @@ const Schema = mongoose.Schema;
 
 const imageSchema = new Schema({
     title: {
-        type: "String",
+        type: String,
         required: true
     },
     notes: {
-        type: "String"
+        type: String
     },
     image: {
         data: Buffer,
         contentType: String
     },
     dateAdded: {
-        type: "Date",
+        type: Date,
         default: Date.now,
         required: true
+    },
+    latitude: {
+        type: String
+    },
+    longitude: {
+        type: String
     }
 });
 
-export default mongoose.model("Image", imageSchema);
+let Image = mongoose.model("Image", imageSchema);
+
+module.exports = Image;

@@ -2,5 +2,7 @@
 
 /////////////////////////////////////////////// /* Add New Modals Here */ //////////////////////////////////////////////////////////
 module.exports = {
-  New: require("./newModal.js")
+  // export the schemas
+  User: require("./User"),
+  Image: require("./Image")
 };

@@ -30,7 +30,7 @@ export default class CommunityPage extends Component {
       Form2 = document.querySelector(".inputs-cont2"),
       UserDetails = document.querySelector(".input-take"),
       goSend = document.querySelector(".send");
-    Form2.style.display = "none";
+      Form2.style.display = "none";
     signIn.onclick = function() {
       "use strict";
       Form.style.display = "none";
@@ -97,19 +97,13 @@ export default class CommunityPage extends Component {
                   <input type="text" className="input-take" placeholder="Enter your Username" required="required"/>
                 </div>
 
-
-                <div className="col s6">
-                  <label className="input-label">E-MAIL</label>
-                  <input type="email" className="input-take" placeholder="Your email goes here" required="required"/> {/* check box */}
-                </div>
-
-                <div className="col s6">
+                {/* <div className="col s6">
                   <input type="radio" name="gender" value="male" checked/>
                   <input type="radio" name="gender" value="female"/>
                   <input type="radio" name="gender" value="other"/>
-                </div>
+                </div> */}
 
-                <div className="col s12">
+                <div className="col s6">
                   <label className="input-label">DOB</label>
                   <input type="text" class="datepicker"/>
                 </div>
