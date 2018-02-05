@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import {Carousel} from "react-materialize"
-import Pixupload from "../../components/Upload/imageUploader.js"
+import Pixupload from "../../components/Upload/Pixuploader"
+import UploadModal from "../../components/UploadModal/UploadModal"
 
 export default class Timeline extends Component {
 
@@ -11,12 +12,12 @@ export default class Timeline extends Component {
       <div>
 
       <nav className="teal accent-4" role="navigation">
-        < Pixupload />
+        {/* <Pixupload /> */}
+        <UploadModal />
         <div className="nav-wrapper container">
           <a id="logo-container" href="#" className="brand-logo">Timeline page</a>
           <ul className="right hide-on-med-and-down">
             <li>
-
               <a href="#">#3651</a>
             </li>
           </ul>

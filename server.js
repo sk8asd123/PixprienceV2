@@ -19,10 +19,10 @@ var LocalStrategy = require('passport-local').Strategy;
 
 /////////////////////////////////////////////// /* Variables */ //////////////////////////////////////////////////////////
 let PORT = process.env.PORT || 8080;
-const User = require("./models/user.js");
+// const User = require("./models/user.js");
 const routes = require("./routes");
-let mongooseConnection = mongoose.connection;
-let db = require("./models"); // Sequelize Models
+// let mongooseConnection = mongoose.connection;
+//let db = require("./models"); // Sequelize Models
 
 /////////////////////////////////////////////// /* Initialize Express */ //////////////////////////////////////////////////////////
 let app = express();
@@ -44,6 +44,13 @@ app.use(session({ // Express Session
     saveUninitialized: true,
     resave: true
 }));
+
+
+app.post('/previewImage', function(req, res){
+  console.log("route hit")
+  let image = req.body;
+  res.send(image);
+})
 
 // Passport init
 app.use(passport.initialize());
@@ -80,20 +87,20 @@ app.use(function (req, res, next) {
 });
 
 /////////////////////////////////////////////// /* Mongoose Configurations*/ //////////////////////////////////////////////////////////
-mongoose.Promise = global.Promise; // Set up promises with mongoose
+// mongoose.Promise = global.Promise; // Set up promises with mongoose
 
-mongoose.connect( // Connect to the Mongo DB
-  process.env.MONGODB_URI || "yourDatabaseLinkGoesHere",
-  {
-    useMongoClient: true
-  }
-);
+// mongoose.connect( // Connect to the Mongo DB
+//   process.env.MONGODB_URI || "yourDatabaseLinkGoesHere",
+//   {
+//     useMongoClient: true
+//   }
+// );
 
-mongooseConnection.on("error", console.error.bind(console, "connection error:"));
+// mongooseConnection.on("error", console.error.bind(console, "connection error:"));
 
-mongooseConnection.once("open", function() {
-  console.log("Sucessfully Connected to Mongo DB !"); // If Connection is successful, Console.log(Message)
-});
+// mongooseConnection.once("open", function() {
+//   console.log("Sucessfully Connected to Mongo DB !"); // If Connection is successful, Console.log(Message)
+// });
 
 
 /////////////////////////////////////////////// /* Start Server */ //////////////////////////////////////////////////////////
