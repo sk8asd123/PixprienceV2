@@ -4,15 +4,12 @@
 
 
 const mongoose = require("mongoose");
-Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 let userSchema = new Schema({
     firstName: {
         type: String,
         require: true
-    },
-    gender: {
-        type: String
     },
     lastName: {
         type: String,
@@ -38,7 +35,7 @@ let userSchema = new Schema({
         type: Buffer
     },
     // populate the user with his/her images
-    note: {
+    image: {
         type: Schema.Types.ObjectId,
         ref: "Image"
     }
@@ -46,6 +43,7 @@ let userSchema = new Schema({
 
 
 });
+
 // create User model
 let User = mongoose.model("User", userSchema);
 
