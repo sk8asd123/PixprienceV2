@@ -2,9 +2,10 @@ import axios from "axios";
 
 /////////////////////////////////////////////// /* AJAX Calls*/ //////////////////////////////////////////////////////////
 export default {
-  // search: function(query) {
-  //   return axios.get(BASEURL + APIKEY + query);
-  // }
+
+  queryBackend: function(path, payload) {
+    return axios.get(path, payload);
+  },
 
   imageData: {
       image1 : "./img/01.jpg",
