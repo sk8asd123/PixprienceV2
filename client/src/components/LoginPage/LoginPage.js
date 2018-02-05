@@ -78,8 +78,7 @@ export default class CommunityPage extends Component {
       Form2 = document.querySelector(".inputs-cont2"),
       UserDetails = document.querySelector(".input-take"),
       goSend = document.querySelector(".send");
-
-    Form2.style.display = "none";
+      Form2.style.display = "none";
 
     signIn.onclick = function() {
       "use strict";

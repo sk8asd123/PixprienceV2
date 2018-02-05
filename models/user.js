@@ -4,9 +4,17 @@
 
 
 const mongoose = require("mongoose");
-Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 let userSchema = new Schema({
+    firstName: {
+        type: String,
+        require: true
+    },
+    lastName: {
+        type: String,
+        require: true
+    },
     username: {
         type: String,
         required: true
@@ -14,8 +22,30 @@ let userSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    email:{
+        type: String,
+        require: true
+    },
+    dob: {
+        type: Date,
+        require: true
+    },
+    profilePicture: {
+        type: Buffer
+    },
+    // populate the user with his/her images
+    image: {
+        type: Schema.Types.ObjectId,
+        ref: "Image"
     }
+    
+
+
 });
 
-module.exports = mongoose.model("User", userSchema);
+// create User model
+let User = mongoose.model("User", userSchema);
 
+// exports the User schema
+module.exports = User
