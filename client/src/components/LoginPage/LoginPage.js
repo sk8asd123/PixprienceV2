@@ -33,7 +33,7 @@ export default class CommunityPage extends Component {
     }; // End State
     this.handleSignInSubmit = this.handleSignInSubmit.bind(this);
     this.handleSignUpSubmit = this.handleSignUpSubmit.bind(this);
-    this.sendUserData = this.sendUserDate.bind(this);
+    // this.sendUserData = this.sendUserDate.bind(this);
   } // End of Constructor
 
 
