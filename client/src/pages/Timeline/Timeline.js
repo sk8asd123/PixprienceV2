@@ -6,7 +6,7 @@ import UploadModal from "../../components/UploadModal/UploadModal"
 import API from '../../utils/API.js'
 import TimelineImage from  '../../components/TimelineImage'
 
-export default class Timeline extends Component {
+class Timeline extends Component {
 
   constructor() {
     super();
@@ -86,3 +86,5 @@ export default class Timeline extends Component {
 
   }
 }
+
+export default Timeline;
