@@ -21,7 +21,7 @@ class App extends Component {
             <HashRouter>
                 <div>
                     <ul className="header">
-                        <li><NavLink to="/login">LoginPage</NavLink></li>
+                        <li><NavLink to="/login">Login Page</NavLink></li>
                         <li><NavLink to="/community">Community</NavLink></li>
                         <li><NavLink exact to="/">About Us</NavLink></li>
                     </ul>
