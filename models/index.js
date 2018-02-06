@@ -3,6 +3,6 @@
 /////////////////////////////////////////////// /* Add New Modals Here */ //////////////////////////////////////////////////////////
 module.exports = {
   // export the schemas
-  User: require("./User"),
-  Image: require("./Image")
+  User: require("./user"),
+  Image: require("./image")
 };

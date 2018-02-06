@@ -2,5 +2,4 @@
 /*jslint es6 */
 "use strict";
 
-import Image from "../models/image";
-
+// import Image from "../models/image";
