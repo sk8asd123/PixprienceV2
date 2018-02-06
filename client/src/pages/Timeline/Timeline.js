@@ -3,8 +3,37 @@ import ReactDOM from "react-dom";
 import {Carousel} from "react-materialize"
 import Pixupload from "../../components/Upload/Pixuploader"
 import UploadModal from "../../components/UploadModal/UploadModal"
+import API from '../../utils/API.js'
+import TimelineImage from  '../../components/TimelineImage'
 
 export default class Timeline extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      images: []
+    }
+
+  } // End of Constructor
+
+  componentWillMount() {
+    this.fetchCommunityImages();
+  }
+
+  fetchCommunityImages() { // Function to Fetch Community Images
+
+    let fetchedimages = [];
+
+    for (let key in API.imageData) { // Get Images from API Ajax Call and Store into Variable fetchedImages
+      fetchedimages.push(API.imageData[key]);
+    }
+    console.log(fetchedimages)
+
+    this.setState(prevState => ({
+      images: [...prevState].concat(fetchedimages)
+    }), () => console.log(this.state))
+  }
 
   render() {
     return (
@@ -41,20 +70,19 @@ export default class Timeline extends Component {
         <div className="section">
           {/* Icon Section */}
           <div className="row">
-            <Carousel images={[
-              'https://lorempixel.com/250/250/nature/1',
-              'https://lorempixel.com/250/250/nature/2',
-              'https://lorempixel.com/250/250/nature/3',
-              'https://lorempixel.com/250/250/nature/4',
-              'https://lorempixel.com/250/250/nature/5'
-            ]} />
+            <div className="carousel" id="imageCarousel">
+
+             { this.state.images.map((imageLink)  =>   <a className="carousel-item"><TimelineImage  image={imageLink} /></a>)}
+            
           </div>
         </div>
         <br/><br/>
         <div className="section"></div>
       </div>
 
-    </div>);
+    </div>
+    </div>
+    );
 
   }
 }
