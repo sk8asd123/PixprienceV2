@@ -17,13 +17,61 @@ export default class CommunityPage extends Component {
     super();
 
     this.state = {
-      images: []
-    }
+      signUpInformation: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        username: '',
+        dob: ''
+      },
 
+      logInInformation: {
+        username: '',
+        password: ''
+      }
+
+    }; // End State
+    this.handleSignInSubmit = this.handleSignInSubmit.bind(this);
+    this.handleSignUpSubmit = this.handleSignUpSubmit.bind(this);
+    this.sendUserData = this.sendUserDate.bind(this);
   } // End of Constructor
 
+
+  handleSignInSubmit(event){
+
+    event.preventDefault();
+
+    this.setState({
+      logInInformation: {
+        username:  this.refs.signInUsername.value,
+        password:  this.refs.signInPassword.value
+      }
+    }, function(){
+        alert("Sign Up Data is" + JSON.stringify(this.state.logInInformation));
+    });
+  } // End handleSignUpSubmit
+
+  handleSignUpSubmit(event){
+
+    event.preventDefault();
+
+    this.setState({
+      signUpInformation: {
+        firstName: this.refs.signUpFirstName.value,
+        lastName:  this.refs.signUpLastName.value,
+        username: this.refs.signUpUsername.value,
+        password: this.refs.signUpPassword.value,
+        email: this.refs.signUpEmail.value,
+        dob: this.refs.signUpDOB.value.replace(/\-/g,"")
+      }
+    }, function(){
+        alert("Login Data is" + JSON.stringify(this.state.signUpInformation));
+    });
+
+  } // End handleSignInSubmit
+
   componentDidMount() {
-    var signIn = document.querySelector(".sign-in"),
+    let signIn = document.querySelector(".sign-in"),
       signUp = document.querySelector(".sign-up"),
       textLabel = document.querySelector(".hed"),
       Form = document.querySelector(".inputs-cont"),
@@ -31,6 +79,7 @@ export default class CommunityPage extends Component {
       UserDetails = document.querySelector(".input-take"),
       goSend = document.querySelector(".send");
       Form2.style.display = "none";
+
     signIn.onclick = function() {
       "use strict";
       Form.style.display = "none";
@@ -38,6 +87,7 @@ export default class CommunityPage extends Component {
       document.title = 'Sign In';
       textLabel.innerHTML = "Sign Up <lighter> or </lighter><span>Sign In </span>";
     };
+
     signUp.onclick = function() {
       "use strict";
       Form2.style.display = "none";
@@ -45,16 +95,18 @@ export default class CommunityPage extends Component {
       document.title = 'Sign Up';
       textLabel.innerHTML = "Sign In <lighter> or </lighter><span>Sign Up </span>";
     };
-  }
+  } // End of componentDidMount
 
   render() {
     return (<Fragment>
 
       <section>
         <section className="container-inside">
+          {/* Left Container */}
           <div className="left-side">
             <img src="https://e.top4top.net/p_649v02so1.png" className="left-img" title="sign up now and save 1200$"/>
           </div>
+          {/* Right Container */}
           <div className="right-side">
             <div className="buttons-container">
               <button type="button" className="sign-up">Sign Up</button>
@@ -68,61 +120,53 @@ export default class CommunityPage extends Component {
                 <span>Sign Up</span>
               </h5>
             </div>
-            <form className="inputs-cont">
+            {/* Sign Up Form */}
+            <form className="inputs-cont" onSubmit={this.handleSignUpSubmit}>
               <div className="row">
-
                 <div className="col s6">
                   <label className="input-label hidden">First Name</label>
-                  <input type="text" className="input-take" placeholder="Enter your full name" required="required"/>
+                  <input type="text" ref="signUpFirstName" className="input-take" placeholder="Enter your full name" required="required"/>
                 </div>
 
                 <div className="col s6">
                   <label className="input-label hidden">Last Name</label>
-                  <input type="text" className="input-take" placeholder="Enter your full name" required="required"/>
+                  <input type="text" ref="signUpLastName" className="input-take" placeholder="Enter your full name" required="required"/>
                 </div>
 
 
                 <div  className="col s6">
                   <label className="input-label">PASSWORD</label>
-                  <input type="password" className="input-take" placeholder="* * * * * * * *" required="required" maxLength={12}/>
+                  <input type="password" ref="signUpPassword" className="input-take" placeholder="* * * * * * * *" required="required" maxLength={12}/>
                 </div>
 
                 <div className="col s6">
                   <label className="input-label">E-MAIL</label>
-                  <input type="email" className="input-take" placeholder="Your email goes here" required="required"/>
+                  <input type="email" ref="signUpEmail" className="input-take" placeholder="Your email goes here" required="required"/>
                 </div>
 
                 <div className="col s6">
                   <label className="input-label">Username</label>
-                  <input type="text" className="input-take" placeholder="Enter your Username" required="required"/>
+                  <input type="text" ref="signUpUsername" className="input-take" placeholder="Enter your Username" required="required"/>
                 </div>
-
-                {/* <div className="col s6">
-                  <input type="radio" name="gender" value="male" checked/>
-                  <input type="radio" name="gender" value="female"/>
-                  <input type="radio" name="gender" value="other"/>
-                </div> */}
 
                 <div className="col s6">
                   <label className="input-label">DOB</label>
-                  <input type="text" class="datepicker"/>
+                  <input type="text" ref="signUpDOB" class="datepicker"/>
                 </div>
-
-                  <input className="send col s12" type="submit" defaultValue="Sign Up"/>
+                {/* Submit Button */}
+                <input className="send col s12" type="submit" defaultValue="Sign Up"/>
 
               </div>
             </form>
 
-
-            {/* for 2 */}
-            <form className="inputs-cont2">
-              <label className="input-label">PASSWORD</label>
-              <input type="password" className="input-take" placeholder="* * * * * * * *" required="required" maxLength={12}/>
-              <label className="input-label">E-MAIL</label>
-              <input type="email" className="input-take" placeholder="Your email goes here" required="required"/> {/* button */}
+            {/* Sign In Form */}
+            <form className="inputs-cont2" onSubmit={this.handleSignInSubmit}>
+              <label className="input-label">User Name </label>
+              <input type="text" ref="signInUsername" className="input-take" placeholder="Your Username Goes HEre" required="required"/> {/* button */}
+              <label className="input-label">Password</label>
+              <input type="password"  ref="signInPassword"className="input-take" placeholder="* * * * * * * *" required="required" maxLength={12}/>
               <input className="send" type="submit" defaultValue="Sign In"/>
             </form>
-            {/* end it fast */}
           </div>
         </section>
       </section>

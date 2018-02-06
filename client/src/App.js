@@ -10,9 +10,8 @@ import Timeline from './pages/Timeline';
 class App extends Component {
   render() {
     return (
-      //<Home/>
-  
-      <Timeline/>
+      <Home/>
+      // <Timeline/>
     );
   }
 }

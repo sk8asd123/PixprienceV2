@@ -6,29 +6,10 @@
 const express = require('express'); // Server
 const bodyParser = require ('body-parser'); // JSON Middleware
 const logger = require('morgan'); // REST Logger
-const mongoose = require('mongoose'); // MongoDB ORM
 
-// Passport Validation Packages //
-var cookieParser = require('cookie-parser');
-var expressValidator = require('express-validator');
-var flash = require('connect-flash');
-var session = require('express-session');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-
-
-/////////////////////////////////////////////// /* Variables */ //////////////////////////////////////////////////////////
-let PORT = process.env.PORT || 8080;
-// const User = require("./models/user.js");
-const routes = require("./routes");
-// let mongooseConnection = mongoose.connection;
-//let db = require("./models"); // Sequelize Models
 
 /////////////////////////////////////////////// /* Initialize Express */ //////////////////////////////////////////////////////////
 let app = express();
-
-/////////////////////////////////////////////// /* Routes */ //////////////////////////////////////////////////////////
-app.use(routes); // Add routes, both API and View
 
 /////////////////////////////////////////////// /* Express Middleware */ //////////////////////////////////////////////////////////
 app.use(bodyParser.urlencoded({extended: true})); // Use body-parser for handling form submissions
@@ -36,74 +17,46 @@ app.use(bodyParser.json()); // Allows For JSON Interactions Between Client & Ser
 app.use(express.static("client/build")); // Serve Static / React Pages
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-app.use(cookieParser());
+
+////////////////////////////////////////////// /* Mongoose Configurations*/ //////////////////////////////////////////////////////////
+const mongoose = require('mongoose'); // MongoDB ORM
+mongoose.Promise = global.Promise; // Set up promises with mongoose
+const mongooseConnection = mongoose.connection;
+const db = require("./models"); // Sequelize Models
 
 
-app.use(session({ // Express Session
-    secret: 'secret',
-    saveUninitialized: true,
-    resave: true
-}));
-
-
-app.post('/previewImage', function(req, res){
-  console.log("route hit")
-  let image = req.body;
-  res.send(image);
-})
-
-// Passport init
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Express Validator
-app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
-
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
-    }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
+mongoose.connect( // Connect to the Mongo DB
+  process.env.MONGODB_URI || "mongodb://localhost/react_passport",
+  {
+    useMongoClient: true
   }
-}));
+);
 
-// Connect Flash
-app.use(flash());
+mongooseConnection.on("error", console.error.bind(console, "connection error:"));
 
-// Global Vars for Flash Messages
-app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg'); // Global Varibles
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  res.locals.user = req.user || null;
-  next();
+mongooseConnection.once("open", function() {
+  console.log("Sucessfully Connected to Mongo DB !"); // If Connection is successful, Console.log(Message)
 });
 
-/////////////////////////////////////////////// /* Mongoose Configurations*/ //////////////////////////////////////////////////////////
-// mongoose.Promise = global.Promise; // Set up promises with mongoose
 
-// mongoose.connect( // Connect to the Mongo DB
-//   process.env.MONGODB_URI || "yourDatabaseLinkGoesHere",
-//   {
-//     useMongoClient: true
-//   }
-// );
+/////////////////////////////////////////////// /* Routes */ //////////////////////////////////////////////////////////
+const routes = require("./routes");
+app.use(routes); // Add routes, both API and View
 
-// mongooseConnection.on("error", console.error.bind(console, "connection error:"));
+/////////////////////////////////////////////// /* Passport */ //////////////////////////////////////////////////////////
 
-// mongooseConnection.once("open", function() {
-//   console.log("Sucessfully Connected to Mongo DB !"); // If Connection is successful, Console.log(Message)
-// });
+// Passport Validation //
+const passport = require('passport');
+
+// load passport strategies //
+const localSignupStrategy = require('./passport/localSignup');
+const localLoginStrategy = require('./passport/localLogin');
+passport.use('local-signup', localSignupStrategy);
+passport.use('local-login', localLoginStrategy);
 
 
 /////////////////////////////////////////////// /* Start Server */ //////////////////////////////////////////////////////////
+let PORT = process.env.PORT || 8080;
 app.listen(PORT, (error) => {
     if (!error) {
         console.log("listening on port", PORT);
