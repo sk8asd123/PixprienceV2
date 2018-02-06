@@ -4,7 +4,7 @@ import {Carousel} from "react-materialize"
 import Pixupload from "../../components/Upload/Pixuploader"
 import UploadModal from "../../components/UploadModal/UploadModal"
 
-export default class Timeline extends Component {
+class Timeline extends Component {
 
   render() {
     return (
@@ -58,3 +58,5 @@ export default class Timeline extends Component {
 
   }
 }
+
+export default Timeline;

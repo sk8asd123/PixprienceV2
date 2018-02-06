@@ -11,7 +11,7 @@ import './LoginPage.nested.css'
 
 /////////////////////////////////////////////// /* Main */ //////////////////////////////////////////////
 
-export default class CommunityPage extends Component {
+export default class LoginPage extends Component {
 
   constructor() {
     super();
