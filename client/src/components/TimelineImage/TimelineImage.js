@@ -1,6 +1,9 @@
 import React from "react";
 
-class TimelineImage extends React.Component{
+
+
+export default class TimelineImage extends React.Component{
+
 
 
     render(){
@@ -8,6 +11,7 @@ class TimelineImage extends React.Component{
             <img src={this.props.image} alt={this.props.title} />
         );
     }
+
 }
 
-export default TimelineImage;
+// export default TimelineImage;

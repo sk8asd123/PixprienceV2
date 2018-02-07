@@ -207,3 +207,7 @@ input[type="checkbox"]:checked:after {
   background-color:transparent;
   cursor:pointer;
 }
+
+.overideActive {
+  background-color: rgba(0,0,0,0)
+}

@@ -4,6 +4,7 @@ import ReactDom from 'react-dom';
 
 /////////////////////////////////////////////// /* Components */ //////////////////////////////////////////////////
 import API from '../../utils/API.js'
+import Nav from "../NavBar";
 
 /////////////////////////////////////////////// /* CSS */ //////////////////////////////////////////////////
 // Metro UI CSS
@@ -47,8 +48,8 @@ export default class CommunityPage extends Component {
   render() {
 
     return (<Fragment>
-
-      <div className="metro container">
+    <Nav/>
+      <div className="metro container content">
         <div className="tile-container bg-darkCobalt">
           <div className="tile bg-red fg-white" data-role="tile">
             <div className="tile-content iconic">
