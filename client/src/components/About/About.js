@@ -34,7 +34,7 @@ class About extends React.Component{
                     <div class="carousel" id="teamCarousel">
                         {this.state.teamMember.map(teamMember => (
                             <Team 
-                                id={teamMember.id}
+                                key={teamMember.id}
                                 name={teamMember.name}
                                 image={teamMember.image}
                                 role={teamMember.role}

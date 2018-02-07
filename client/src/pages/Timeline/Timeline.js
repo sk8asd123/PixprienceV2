@@ -15,12 +15,6 @@ export default class Timeline extends Component {
         {/* <Pixupload /> */}
         <UploadModal />
         <div className="nav-wrapper container">
-          <a id="logo-container" href="#" className="brand-logo">Timeline page</a>
-          <ul className="right hide-on-med-and-down">
-            <li>
-              <a href="#">#3651</a>
-            </li>
-          </ul>
           <ul id="nav-mobile" className="side-nav">
             <li>
               <a href="#">#3651</a>
