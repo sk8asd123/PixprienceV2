@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Component, Fragment} from 'react';
 import {Col, Row, Carousel} from 'react-materialize';
 import Team from '../Team/Team.js';
 import teamMember from "./teamMember.json";
 import "./AboutPage.css"
-
+import Nav from "../NavBar";
 
 class About extends React.Component{
 
@@ -15,13 +15,19 @@ class About extends React.Component{
 
     render(){
         return(
+
+            <Fragment>
+
+
+
+        <Nav/>
             //about page
-        <div>
+        <div className="content">
             <section id="about-page">
                 <div className="container" style={containerBackground}>
                     <Row>
                         <Col s={12} className="center-align">
-                        {/* Motto and About */} 
+                        {/* Motto and About */}
                             <h3 class="section-heading">Our Motto</h3>
                             <h6 class="section-subheading">Discover You. Pictures that Tell Your Experience </h6>
                             <h3 class="section-heading">About</h3>
@@ -31,9 +37,9 @@ class About extends React.Component{
                             <h6 class="section-subheading">The behind your Pixperience experience</h6>
                         </Col>
                     </Row>
-                    <div class="carousel" id="teamCarousel">
+                    <div className="carousel" id="teamCarousel">
                         {this.state.teamMember.map(teamMember => (
-                            <Team 
+                            <Team
                                 id={teamMember.id}
                                 name={teamMember.name}
                                 image={teamMember.image}
@@ -44,9 +50,9 @@ class About extends React.Component{
                 </div>
             </section>
         </div>
-                
-            
-        
+
+            </Fragment>
+
         );
     }
 }
