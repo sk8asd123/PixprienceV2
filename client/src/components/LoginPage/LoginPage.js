@@ -5,6 +5,7 @@ import {Row, Input} from "react-materialize"
 
 /////////////////////////////////////////////// /* Components */ //////////////////////////////////////////////
 import API from '../../utils/API.js'
+import Nav from "../NavBar";
 
 /////////////////////////////////////////////// /* CSS */ //////////////////////////////////////////////
 import './LoginPage.nested.css'
@@ -99,8 +100,8 @@ export default class LoginPage extends Component {
 
   render() {
     return (<Fragment>
-
-      <section>
+      <Nav/>
+      <section className="content">
         <section className="container-inside">
           {/* Left Container */}
           <div className="left-side">
@@ -124,33 +125,33 @@ export default class LoginPage extends Component {
             <form className="inputs-cont" onSubmit={this.handleSignUpSubmit}>
               <div className="row">
                 <div className="col s6">
-                  <label className="input-label hidden">First Name</label>
+                  <label className="input-label hidden overideActive">First Name</label>
                   <input type="text" ref="signUpFirstName" className="input-take" placeholder="Enter your full name" required="required"/>
                 </div>
 
                 <div className="col s6">
-                  <label className="input-label hidden">Last Name</label>
+                  <label className="input-label hidden overideActive">Last Name</label>
                   <input type="text" ref="signUpLastName" className="input-take" placeholder="Enter your full name" required="required"/>
                 </div>
 
 
                 <div  className="col s6">
-                  <label className="input-label">PASSWORD</label>
+                  <label className="input-label overideActive">PASSWORD</label>
                   <input type="password" ref="signUpPassword" className="input-take" placeholder="* * * * * * * *" required="required" maxLength={12}/>
                 </div>
 
                 <div className="col s6">
-                  <label className="input-label">E-MAIL</label>
+                  <label className="input-label overideActive">E-MAIL</label>
                   <input type="email" ref="signUpEmail" className="input-take" placeholder="Your email goes here" required="required"/>
                 </div>
 
                 <div className="col s6">
-                  <label className="input-label">Username</label>
+                  <label className="input-label overideActive">Username</label>
                   <input type="text" ref="signUpUsername" className="input-take" placeholder="Enter your Username" required="required"/>
                 </div>
 
                 <div className="col s6">
-                  <label className="input-label">DOB</label>
+                  <label className="input-label overideActive">DOB</label>
                   <input type="text" ref="signUpDOB" class="datepicker"/>
                 </div>
                 {/* Submit Button */}
@@ -161,9 +162,9 @@ export default class LoginPage extends Component {
 
             {/* Sign In Form */}
             <form className="inputs-cont2" onSubmit={this.handleSignInSubmit}>
-              <label className="input-label">User Name </label>
+              <label className="input-label overideActive">User Name </label>
               <input type="text" ref="signInUsername" className="input-take" placeholder="Your Username Goes HEre" required="required"/> {/* button */}
-              <label className="input-label">Password</label>
+              <label className="input-label overideActive">Password</label>
               <input type="password"  ref="signInPassword"className="input-take" placeholder="* * * * * * * *" required="required" maxLength={12}/>
               <input className="send" type="submit" defaultValue="Sign In"/>
             </form>
