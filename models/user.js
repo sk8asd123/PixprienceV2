@@ -11,23 +11,28 @@ console.log('user');
 let userSchema = new Schema({
     firstName: {
         type: String,
-        require: true
+        require: true,
+        trim: true
     },
     lastName: {
         type: String,
-        require: true
+        require: true,
+        trim: true
     },
     username: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     email:{
         type: String,
-        require: true
+        require: true,
+        trim: true
     },
     dob: {
         type: Date,

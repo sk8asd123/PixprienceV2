@@ -8,10 +8,12 @@ const Schema = mongoose.Schema;
 const imageSchema = new Schema({
     title: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     notes: {
-        type: String
+        type: String,
+        trim: true
     },
     image: {
         data: Buffer,
@@ -23,10 +25,12 @@ const imageSchema = new Schema({
         required: true
     },
     latitude: {
-        type: String
+        type: String,
+        trim: true
     },
     longitude: {
-        type: String
+        type: String,
+        trim: true
     }
 });
 

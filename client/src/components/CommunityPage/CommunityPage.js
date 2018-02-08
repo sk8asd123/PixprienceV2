@@ -1,6 +1,7 @@
 /////////////////////////////////////////////// /* Imports */ //////////////////////////////////////////////////
 import React, {Component, Fragment} from 'react';
 import ReactDom from 'react-dom';
+import {Slider, Slide} from 'react-materialize';
 
 /////////////////////////////////////////////// /* Components */ //////////////////////////////////////////////////
 import API from '../../utils/API.js'
@@ -14,6 +15,7 @@ import '../../.././node_modules/metro-dist/css/metro-icons.css';
 import '../../.././node_modules/metro-dist/css/metro-responsive.css';
 import '../../.././node_modules/metro-dist/css/metro-rtl.css';
 import '../../.././node_modules/metro-dist/css/metro-schemes.css';
+import './community.css';
 
 /////////////////////////////////////////////// /* Main */ //////////////////////////////////////////////////
 
@@ -46,11 +48,638 @@ export default class CommunityPage extends Component {
   }
 
   render() {
-
+    //bg-darkCobal
     return (<Fragment>
     <Nav/>
-      <div className="metro container content">
-        <div className="tile-container bg-darkCobalt">
+      <div className="metro content container" style={{position: "relative", left: "100px"}}>
+        <div className="tile-container" >
+
+          <div className="tile fg-white" data-role="tile" data-effect="slideLeft">
+                      <div className="tile-content">
+                        <div className="live-slide" style={{
+                            left: '14.1461px'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[15] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            left: '-150px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[16] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            left: '-150px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[17] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            left: '-150px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[18] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            left: '-135.854px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[19] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="tile-label">effect: slideLeft</div>
+                    </div>
+                    <div className="tile fg-white" data-role="tile" data-effect="slideRight">
+                      <div className="tile-content">
+                        <div className="live-slide" style={{
+                            left: '-14.6537px'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[20] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            left: 150,
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[21] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            left: 150,
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[22] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            left: 150,
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[23] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            left: '135.346px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[24] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="tile-label">effect: slideRight</div>
+                    </div>
+                    <div className="tile fg-white" data-role="tile" data-effect="slideLeftRight">
+                      <div className="tile-content">
+                        <div className="live-slide" style={{
+                            left: '15.3149px'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[25] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            left: '-150px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[26] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            left: 150,
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[27] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            left: '-150px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[28] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            left: '-134.685px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[29] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="tile-label">effect: slideLeftRight</div>
+                    </div>
+                    <div className="tile fg-white" data-role="tile" data-effect="slideUp">
+                      <div className="tile-content">
+                        <div className="live-slide" style={{
+                            top: '15.3889px'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[30] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            top: '-150px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[10] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            top: '-150px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[11] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            top: '-150px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[12] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            top: '-134.611px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[13] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="tile-label">effect: slideUp</div>
+                    </div>
+                    <div className="tile fg-white" data-role="tile" data-effect="slideDown">
+                      <div className="tile-content">
+                        <div className="live-slide" style={{
+                            top: '-15.8359px'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[14] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            top: 150,
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[24] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            top: 150,
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[1] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            top: 150,
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[1] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            top: '134.164px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[1] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="tile-label">effect: slideDown</div>
+                    </div>
+                    <div className="tile fg-white" data-role="tile" data-effect="slideUpDown">
+                      <div className="tile-content">
+                        <div className="live-slide" style={{
+                            top: '16.6672px'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[17] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            top: '-150px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[18] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            top: 150,
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url("images/3.jpg")',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            top: '-150px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[19] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="live-slide" style={{
+                            top: '-133.333px',
+                            display: 'block'
+                          }}>
+                          <div className="image-container image-format-fill" style={{
+                              width: '100%',
+                              height: '100%'
+                            }}>
+                            <div className="frame">
+                              <div style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  backgroundImage: 'url(' + this.state.images[20] + ')',
+                                  backgroundSize: 'cover',
+                                  backgroundRepeat: 'no-repeat',
+                                  borderRadius: 0
+                                }}/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="tile-label">effect: slideUpDown</div>
+                    </div>
+
+
           <div className="tile bg-red fg-white" data-role="tile">
             <div className="tile-content iconic">
               <span className="icon mif-cogs"/>
@@ -115,38 +744,25 @@ export default class CommunityPage extends Component {
           </div>
           <div className=" metro tile-wide bg-orange fg-white" data-role="tile">
             <div className=" metro widget tile-content">
-              <div className="slider" style={{height: "inherit"}}>
-                  <ul className="slides" style={{height: "inherit"}}>
-                    <li>
-                      <img src="https://lorempixel.com/580/250/nature/1" /> {/* random image */}
-                      <div className="caption center-align">
-                        <h6>This is our big Tagline!</h6>
-                        <h6 className="light grey-text text-lighten-3">Here's our small slogan.</h6>
-                      </div>
-                    </li>
-                    <li>
-                      <img src="https://lorempixel.com/580/250/nature/2" /> {/* random image */}
-                      <div className="caption left-align">
-                        <h6>Left Aligned Caption</h6>
-                        <h6 className="light grey-text text-lighten-3">Here's our small slogan.</h6>
-                      </div>
-                    </li>
-                    <li>
-                      <img src="https://lorempixel.com/580/250/nature/3" /> {/* random image */}
-                      <div className="caption right-align">
-                        <h6>Right Aligned Caption</h6>
-                        <h6 className="light grey-text text-lighten-3">Here's our small slogan.</h6>
-                      </div>
-                    </li>
-                    <li>
-                      <img src="https://lorempixel.com/580/250/nature/4" /> {/* random image */}
-                      <div className="caption center-align">
-                        <h6>This is our big Tagline!</h6>
-                        <h6 className="light grey-text text-lighten-3">Here's our small slogan.</h6>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+              <Slider>
+              	<Slide
+              		src={this.state.images[5]}
+              		title="This is our big Tagline!">
+              		Here's our small slogan.
+              	</Slide>
+              	<Slide
+              		src={this.state.images[24]}
+              		title="Left aligned Caption"
+              		placement="left">
+              		Here's our small slogan.
+              	</Slide>
+              	<Slide
+              		src={this.state.images[15]}
+              		title="Right aligned Caption"
+              		placement="right">
+              		Here's our small slogan.
+              	</Slide>
+              </Slider>
               <div className="tile-label">Carousel</div>
             </div>
           </div>
@@ -486,630 +1102,7 @@ export default class CommunityPage extends Component {
               <div className="tile-label">Zooming out</div>
             </div>
           </div>
-          <div className="tile fg-white" data-role="tile" data-effect="slideLeft">
-            <div className="tile-content">
-              <div className="live-slide" style={{
-                  left: '14.1461px'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[15] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  left: '-150px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[16] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  left: '-150px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[17] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  left: '-150px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[18] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  left: '-135.854px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[19] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="tile-label">effect: slideLeft</div>
-          </div>
-          <div className="tile fg-white" data-role="tile" data-effect="slideRight">
-            <div className="tile-content">
-              <div className="live-slide" style={{
-                  left: '-14.6537px'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[20] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  left: 150,
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[21] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  left: 150,
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[22] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  left: 150,
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[23] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  left: '135.346px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[24] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="tile-label">effect: slideRight</div>
-          </div>
-          <div className="tile fg-white" data-role="tile" data-effect="slideLeftRight">
-            <div className="tile-content">
-              <div className="live-slide" style={{
-                  left: '15.3149px'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[25] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  left: '-150px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[26] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  left: 150,
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[27] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  left: '-150px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[28] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  left: '-134.685px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[29] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="tile-label">effect: slideLeftRight</div>
-          </div>
-          <div className="tile fg-white" data-role="tile" data-effect="slideUp">
-            <div className="tile-content">
-              <div className="live-slide" style={{
-                  top: '15.3889px'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[30] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  top: '-150px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[10] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  top: '-150px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[11] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  top: '-150px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[12] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  top: '-134.611px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[13] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="tile-label">effect: slideUp</div>
-          </div>
-          <div className="tile fg-white" data-role="tile" data-effect="slideDown">
-            <div className="tile-content">
-              <div className="live-slide" style={{
-                  top: '-15.8359px'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[14] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  top: 150,
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[24] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  top: 150,
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[1] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  top: 150,
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[1] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  top: '134.164px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[1] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="tile-label">effect: slideDown</div>
-          </div>
-          <div className="tile fg-white" data-role="tile" data-effect="slideUpDown">
-            <div className="tile-content">
-              <div className="live-slide" style={{
-                  top: '16.6672px'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[17] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  top: '-150px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[18] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  top: 150,
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url("images/3.jpg")',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  top: '-150px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[19] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-              <div className="live-slide" style={{
-                  top: '-133.333px',
-                  display: 'block'
-                }}>
-                <div className="image-container image-format-fill" style={{
-                    width: '100%',
-                    height: '100%'
-                  }}>
-                  <div className="frame">
-                    <div style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundImage: 'url(' + this.state.images[20] + ')',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        borderRadius: 0
-                      }}/>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="tile-label">effect: slideUpDown</div>
-          </div>
+
         </div>
       </div>
     </Fragment>); // End of Return
