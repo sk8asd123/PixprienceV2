@@ -1,11 +1,11 @@
 /////////////////////////////////////////////// /* Imports */ //////////////////////////////////////////////
 import React, {Component, Fragment} from 'react';
 import ReactDom from 'react-dom';
-import {Row, Input} from "react-materialize"
 
 /////////////////////////////////////////////// /* Components */ //////////////////////////////////////////////
 import API from '../../utils/API.js'
 import Nav from "../NavBar";
+import Auth from '../../modules/Auth';
 
 /////////////////////////////////////////////// /* CSS */ //////////////////////////////////////////////
 import './LoginPage.nested.css'
@@ -14,8 +14,17 @@ import './LoginPage.nested.css'
 
 export default class LoginPage extends Component {
 
-  constructor() {
-    super();
+  constructor(props, context) {
+    super(props, context);
+
+    const storedMessage = localStorage.getItem('successMessage');
+    let successMessage = '';
+
+    if (storedMessage) {
+      successMessage = storedMessage;
+      localStorage.removeItem('successMessage');
+    }
+
 
     this.state = {
       signUpInformation: {
@@ -28,6 +37,13 @@ export default class LoginPage extends Component {
 
       logInInformation: {
         username: '',
+        password: ''
+      },
+
+      errors: {},
+      successMessage,
+      user: {
+        email: '',
         password: ''
       }
 
@@ -50,6 +66,45 @@ export default class LoginPage extends Component {
     }, function(){
         alert("Sign Up Data is" + JSON.stringify(this.state.logInInformation));
     });
+
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('post', '/auth/login');
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.responseType = 'json';
+    xhr.addEventListener('load', () => {
+      if (xhr.status === 200) {
+        // success
+
+        // change the component-container state
+        this.setState({
+          errors: {}
+        });
+
+        // save the token
+        Auth.authenticateUser(xhr.response.token);
+
+        // update authenticated state
+        this.props.toggleAuthenticateStatus()
+
+        // redirect signed in user to dashboard
+        this.props.history.push('/dashboard');
+      } else {
+        // failure
+
+        // change the component state
+        const errors = xhr.response.errors ? xhr.response.errors : {};
+        errors.summary = xhr.response.message;
+
+        this.setState({
+          errors
+        });
+      }
+    });
+    xhr.send(this.state.logInInformation);
+
+
+
   } // End handleSignUpSubmit
 
   handleSignUpSubmit(event){
@@ -68,6 +123,42 @@ export default class LoginPage extends Component {
     }, function(){
         alert("Login Data is" + JSON.stringify(this.state.signUpInformation));
     });
+
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('post', '/auth/login');
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.responseType = 'json';
+    xhr.addEventListener('load', () => {
+      if (xhr.status === 200) {
+        // success
+
+        // change the component-container state
+        this.setState({
+          errors: {}
+        });
+
+        // save the token
+        Auth.authenticateUser(xhr.response.token);
+
+        // update authenticated state
+        this.props.toggleAuthenticateStatus()
+
+        // redirect signed in user to dashboard
+        this.props.history.push('/dashboard');
+      } else {
+        // failure
+
+        // change the component state
+        const errors = xhr.response.errors ? xhr.response.errors : {};
+        errors.summary = xhr.response.message;
+
+        this.setState({
+          errors
+        });
+      }
+    });
+    xhr.send(this.state.signUpInformation);
 
   } // End handleSignInSubmit
 
@@ -105,7 +196,7 @@ export default class LoginPage extends Component {
         <section className="container-inside">
           {/* Left Container */}
           <div className="left-side">
-            <img src="https://e.top4top.net/p_649v02so1.png" className="left-img" title="sign up now and save 1200$"/>
+            <img src="https://images.pexels.com/photos/598917/pexels-photo-598917.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb" className="left-img" title="sign up now and save 1200$"/>
           </div>
           {/* Right Container */}
           <div className="right-side">
@@ -123,6 +214,8 @@ export default class LoginPage extends Component {
             </div>
             {/* Sign Up Form */}
             <form className="inputs-cont" onSubmit={this.handleSignUpSubmit}>
+              {this.state.successMessage && <p className="success-message">{this.state.successMessage}</p>}
+              {this.errors && <p className="error-message">{this.errors}</p>}
               <div className="row">
                 <div className="col s6">
                   <label className="input-label hidden overideActive">First Name</label>

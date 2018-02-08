@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Ryan Kim",
     "image": "../../../img/Ryan-Kim.jpeg",
-    "role": "Designer/Developer",
+    "role": "Designer / Developer",
     "linkedIn":"#",
     "github":"#"
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "name": "Kiwon Nam",
     "image": "../../../img/Kiwon-Nam.png",
-    "role": "Designer/Developer",
+    "role": "Designer / Developer",
     "linkedIn":"#",
     "github":"#"
   },
@@ -19,23 +19,23 @@
     "id": 3,
     "name": "Paige Lo",
     "image": "../../../img/Paige-Lo.jpeg",
-    "role": "Designer/Developer",
+    "role": "Backend Developer",
     "linkedIn":"#",
     "github":"#"
   },
   {
     "id": 4,
-    "name": "Nadia Noui-Mehidi",
+    "name": "Babak Shahian Jahromi",
     "image": "../../../img/250x250.png",
-    "role": "Designer/Developer",
+    "role":"Timeline Developer",
     "linkedIn":"#",
     "github":"#"
   },
   {
     "id": 5,
-    "name": "Babak Shahian Jahromi",
-    "image": "../../../img/250x250.png",
-    "role":"Designer/Developer",
+    "name": "Nadia Noui-Mehidi",
+    "image": "../../../img/Nadia.jpeg",
+    "role": "Developer",
     "linkedIn":"#",
     "github":"#"
   }

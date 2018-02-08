@@ -1,0 +1,15 @@
+.slider {
+  height: inherit !important;
+
+}
+.slides{
+    height: inherit !important;
+}
+
+.indicators {
+  display: none;
+}
+
+ .slider .slides li img{
+     height: inherit !important;
+ }
