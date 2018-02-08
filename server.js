@@ -26,7 +26,7 @@ const db = require("./models"); // Sequelize Models
 
 
 mongoose.connect( // Connect to the Mongo DB
-  process.env.MONGODB_URI ||"mongodb://<heroku_0g1bl4gg>:< heroku_0g1bl4gg>@ds123718.mlab.com:23718/heroku_0g1bl4gg",
+  process.env.MONGODB_URI ||"mongodb://heroku_fq360rd6:1cbk0mc9u31mqeutipesfj0ur2@ds229458.mlab.com:29458/heroku_fq360rd6",
   {
     useMongoClient: true
   }
