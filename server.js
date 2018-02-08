@@ -26,7 +26,7 @@ const db = require("./models"); // Sequelize Models
 
 
 mongoose.connect( // Connect to the Mongo DB
-  process.env.MONGODB_URI || "mongodb://localhost/react_passport",
+  process.env.MONGODB_URI || "mongodb://heroku_0g1bl4gg:@ds123718.mlab.com:23718/heroku_0g1bl4gg",
   {
     useMongoClient: true
   }
