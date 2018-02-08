@@ -65,7 +65,7 @@ class App extends Component {
                     <Route exact path="/" component={About}/>
                     <Route path="/login" component={LoginPage}/>
                     <Route path="/community" component={Community}/>
-                    <PrivateRoute path="/timeline" component={Timeline}/>
+                    <Route path="/timeline" component={Timeline}/>
                 </switch>
             </Router>
         );
