@@ -51,10 +51,10 @@ class UploadModal extends React.Component{
 
                         <Pixuploader />
                         
-                        <Row>
+                        {/* <Row>
                             <Col s={12} className="center-align">
                                 {/* Form to input title */}
-                                <div className="input-field left-align">
+                                {/* <div className="input-field left-align">
                                     <i className="material-icons prefix">Title</i>
                                     <input id="imageUploadTitle" type="text" required />
                                 </div>
@@ -63,7 +63,7 @@ class UploadModal extends React.Component{
                         <Row>
                             <Col s={12} className="center-align">
                                 {/* Form to input title */}
-                                <div className="input-field left-align">
+                                {/* <div className="input-field left-align">
                                     <i className="material-icons prefix">Notes</i>
                                     <input id="imageUploadTitle" type="text" required />
                                 </div>
@@ -72,7 +72,7 @@ class UploadModal extends React.Component{
                         <Row>
                             <Col s={12}>
                             </Col>
-                        </Row>
+                        </Row>*/}
                 </div>
             </Modal>
         );
