@@ -12,8 +12,8 @@ const logger = require('morgan'); // REST Logger
 let app = express();
 
 /////////////////////////////////////////////// /* Express Middleware */ //////////////////////////////////////////////////////////
-app.use(bodyParser.urlencoded({extended: true})); // Use body-parser for handling form submissions
-app.use(bodyParser.json()); // Allows For JSON Interactions Between Client & Server
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true})); // Allows For JSON Interactions Between Client & Server
 app.use(express.static("client/build")); // Serve Static / React Pages
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
@@ -40,8 +40,8 @@ mongooseConnection.once("open", function() {
 
 
 /////////////////////////////////////////////// /* Routes */ //////////////////////////////////////////////////////////
-const routes = require("./routes");
-app.use(routes); // Add routes, both API and View
+// const routes = require("./routes");
+// app.use(routes); // Add routes, both API and View
 
 /////////////////////////////////////////////// /* Passport */ //////////////////////////////////////////////////////////
 
@@ -53,6 +53,21 @@ const localSignupStrategy = require('./passport/localSignup');
 const localLoginStrategy = require('./passport/localLogin');
 passport.use('local-signup', localSignupStrategy);
 passport.use('local-login', localLoginStrategy);
+
+var cors = require("cors");
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+app.use(cors());
+
+app.post("/api/upload", function(req, res) {
+  console.log("Submit Images Path hit");
+  console.log(req.body);
+  res.json({name: 'tom'})
+});
+
 
 
 /////////////////////////////////////////////// /* Start Server */ //////////////////////////////////////////////////////////
