@@ -33,7 +33,6 @@ class UploadModal extends React.Component{
             //Modal to upload
             <Modal id="imageUploadModal" trigger={<Button id="uploadBtn" href="#imageUploadModal"><i className="material-icons large cloud">cloud_upload</i></Button>}>
                 <div className="container">
-  
                         {/* Row for image preview */}
                         {/* <Row>
                             <Col s={3}></Col>
