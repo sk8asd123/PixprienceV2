@@ -5,7 +5,8 @@
 /////////////////////////////////////////////// /* Imports */ //////////////////////////////////////////////////////////
 const express = require('express'); // Server
 const bodyParser = require ('body-parser'); // JSON Middleware
-//const logger = require('morgan'); // REST Logger
+
+// const logger = require('morgan'); // REST Logger
 
 
 
@@ -26,6 +27,7 @@ const mongooseConnection = mongoose.connection;
 const db = require("./models");
 const routes = require("./routes");
 
+
 mongoose.connect( // Connect to the Mongo DB
   process.env.MONGODB_URI ||"mongodb://test:test@ds123718.mlab.com:23718/heroku_0g1bl4gg",
   {
@@ -41,20 +43,22 @@ mongooseConnection.once("open", function() {
 
 
 /////////////////////////////////////////////// /* Routes */ //////////////////////////////////////////////////////////
-// const routes = require("./routes");
-// app.use(routes); // Add routes, both API and View
+// Authenication Routes //
+const authRoutes = require('./routes/auth');
+app.use('/auth', authRoutes);
 
 /////////////////////////////////////////////// /* Passport */ //////////////////////////////////////////////////////////
 
 // Passport Validation //
-const passport = require('passport');
+// const passport = require('passport');
 
 // load passport strategies //
-const localSignupStrategy = require('./passport/localSignup');
-const localLoginStrategy = require('./passport/localLogin');
-passport.use('local-signup', localSignupStrategy);
-passport.use('local-login', localLoginStrategy);
+// const localSignupStrategy = require('./passport/localSignup');
+// const localLoginStrategy = require('./passport/localLogin');
+// passport.use('local-signup', localSignupStrategy);
+// passport.use('local-login', localLoginStrategy);
 
+/////////////////////////////////////////////// /* Cross Origin Settings */ //////////////////////////////////////////////////////////
 var cors = require("cors");
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -63,6 +67,7 @@ app.use(function(req, res, next) {
 });
 app.use(cors());
 
+// Image Upload Route
 app.post("/api/upload", function(req, res) {
   console.log("Submit Images Path hit");
   console.log(req.body)
