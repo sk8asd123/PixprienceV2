@@ -1,9 +1,9 @@
 import React, {Component, Fragment} from 'react';
 import {Col, Row, Carousel} from 'react-materialize';
-import Team from '../Team/Team.js';
+import Team from '../../components/Team/Team.js';
 import teamMember from "./teamMember.json";
 import "./AboutPage.css"
-import Nav from "../NavBar";
+import Nav from "../../components/NavBar";
 
 class About extends React.Component {
 

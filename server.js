@@ -25,7 +25,7 @@ const mongooseConnection = mongoose.connection;
 const db = require("./models"); // Sequelize Models
 
 
-mongoose.connect( // Connect to the Mongo DB
+mongoose.connect( // Connect to the Mongo DB  Use this after Project 3 Completion. mongodb://heroku_fq360rd6:1cbk0mc9u31mqeutipesfj0ur2@ds229458.mlab.com:29458/heroku_fq360rd6
   process.env.MONGODB_URI ||"mongodb://heroku_fq360rd6:1cbk0mc9u31mqeutipesfj0ur2@ds229458.mlab.com:29458/heroku_fq360rd6",
   {
     useMongoClient: true
@@ -40,20 +40,22 @@ mongooseConnection.once("open", function() {
 
 
 /////////////////////////////////////////////// /* Routes */ //////////////////////////////////////////////////////////
-// const routes = require("./routes");
-// app.use(routes); // Add routes, both API and View
+// Authenication Routes //
+const authRoutes = require('./routes/auth');
+app.use('/auth', authRoutes);
 
 /////////////////////////////////////////////// /* Passport */ //////////////////////////////////////////////////////////
 
 // Passport Validation //
-const passport = require('passport');
+// const passport = require('passport');
 
 // load passport strategies //
-const localSignupStrategy = require('./passport/localSignup');
-const localLoginStrategy = require('./passport/localLogin');
-passport.use('local-signup', localSignupStrategy);
-passport.use('local-login', localLoginStrategy);
+// const localSignupStrategy = require('./passport/localSignup');
+// const localLoginStrategy = require('./passport/localLogin');
+// passport.use('local-signup', localSignupStrategy);
+// passport.use('local-login', localLoginStrategy);
 
+/////////////////////////////////////////////// /* Cross Origin Settings */ //////////////////////////////////////////////////////////
 var cors = require("cors");
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -62,6 +64,7 @@ app.use(function(req, res, next) {
 });
 app.use(cors());
 
+// Image Upload Route
 app.post("/api/upload", function(req, res) {
   console.log("Submit Images Path hit");
   console.log(req.body);

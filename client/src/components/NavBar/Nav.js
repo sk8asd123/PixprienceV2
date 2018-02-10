@@ -9,9 +9,9 @@ class Nav extends Component {
     return(
       <Navbar className="header" style={{"background-color": "black"}}>
         <ul>
-          <li className="right"><NavLink to="/login">Login Page</NavLink></li>
+          <li className="right"><NavLink to="/authenticationpage">Login Page</NavLink></li>
           <li className="right"><NavLink to="/community">Community</NavLink></li>
-          <li className="right"><NavLink exact to="/">About Us</NavLink></li>
+          <li className="right"><NavLink exact to="/about">About Us</NavLink></li>
         </ul>
       </Navbar>
     )
