@@ -202,8 +202,8 @@ class Pixupload extends React.Component {
     this.state={
       //photos: [
         img: [],
-        location: " ",
         notes: "",
+        title: "",
         // file = this.fileInput.files[0],
         // fileName = file.name,
         // loc = this.textInput;
@@ -218,6 +218,7 @@ class Pixupload extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChangeNotes = this.handleInputChangeNotes.bind(this);
+      this.handleInputChangeTitle = this.handleInputChangeTitle.bind(this);
     this.handleFileUpload = this.handleFileUpload.bind(this);
   }
   //FUNCTION FOR WHAT HAPPENS WHEN SUBMIT BUTTON IS CLICKED AKA COLLECTING AND SENDING FILE
@@ -237,12 +238,13 @@ class Pixupload extends React.Component {
   //SENDING THE PIC DATA TO THE BACKEND
   // console.log('we are about to save this thing ----', pixObject);
 
-        var tom = {
-          base64: this.state.img[0].base64,
-          notes: this.state.notes
+        var data = {
+            base64: this.state.img[0].base64,
+            title: this.state.title,
+            notes: this.state.notes
         }
 
-        axios.post('http://localhost:8080/api/upload', tom)
+        axios.post('/api/upload', data)
         .then(function(response) {
           console.log(response);
         })
@@ -274,6 +276,10 @@ class Pixupload extends React.Component {
     console.log('handle inpout chance notes@@');
     this.setState({notes: e.target.value})
   }
+    handleInputChangeTitle(e) {
+        console.log('handle inpout chance notes@@');
+        this.setState({title: e.target.value})
+    }
   handleFileUpload(picture) {
     this.setState({
         img: this.state.img.concat(picture),
@@ -306,9 +312,9 @@ class Pixupload extends React.Component {
         />
         <br />
         <label>
-         Location:
+         Title:
          <input
-           name="location"
+           name="title"
            type="text"
            ref={input => {
              this.textInput = input;
@@ -316,7 +322,7 @@ class Pixupload extends React.Component {
              ;
            }}
            //value={this.state.notes}
-           onChange={this.handleInputChange} />
+           onChange={this.handleInputChangeTitle} />
        </label>
        <br />
        <label>

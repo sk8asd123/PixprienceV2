@@ -8,7 +8,6 @@ const Schema = mongoose.Schema;
 const imageSchema = new Schema({
     title: {
         type: String,
-        required: true,
         trim: true
     },
     notes: {
@@ -16,13 +15,11 @@ const imageSchema = new Schema({
         trim: true
     },
     image: {
-        data: Buffer,
-        contentType: String
+        type: String
     },
     dateAdded: {
         type: Date,
         default: Date.now,
-        required: true
     },
     latitude: {
         type: String,
@@ -31,6 +28,10 @@ const imageSchema = new Schema({
     longitude: {
         type: String,
         trim: true
+    },
+    share: {
+        type: Boolean,
+        default: true
     }
 });
 
