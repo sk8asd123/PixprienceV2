@@ -5,6 +5,7 @@
 /////////////////////////////////////////////// /* Imports */ //////////////////////////////////////////////////////////
 const express = require('express'); // Server
 const bodyParser = require ('body-parser'); // JSON Middleware
+
 // const logger = require('morgan'); // REST Logger
 
 
@@ -25,8 +26,10 @@ const mongooseConnection = mongoose.connection;
 const db = require("./models"); // Sequelize Models
 
 
+
 mongoose.connect( // Connect to the Mongo DB  Use this after Project 3 Completion. mongodb://heroku_fq360rd6:1cbk0mc9u31mqeutipesfj0ur2@ds229458.mlab.com:29458/heroku_fq360rd6
   process.env.MONGODB_URI ||"mongodb://heroku_fq360rd6:1cbk0mc9u31mqeutipesfj0ur2@ds229458.mlab.com:29458/heroku_fq360rd6",
+
   {
     useMongoClient: true
   }
