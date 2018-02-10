@@ -1,73 +1,43 @@
 /////////////////////////////////////////////// /* Imports */ //////////////////////////////////////////////////////////
-import React, { Component } from "react";
-import "./index.css";
+import React, { Component, Fragment} from 'react';
+import ReactDom from 'react-dom';
+import { Route, NavLink, Redirect, withRouter, Link, Switch, BrowserRouter as Router} from "react-router-dom";
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-import { Route, NavLink, Redirect, withRouter, Link, BrowserRouter as Router } from "react-router-dom";
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 //////////////////////////////////////////////// /* Components */ //////////////////////////////////////////////////////////
-import About from './components/About';
-import LoginPage from './components/LoginPage';
-import Community from './components/CommunityPage';
+import About from './pages/About';
+import AuthenticationPage from './pages/AuthenticationPage';
+import Community from './pages/CommunityPage';
 import Timeline from './pages/Timeline';
-import Auth from './modules/Auth';
-
-// Routes from Passport //
-// import Base from './components/Base.jsx';
-// import HomePage from './components/HomePage.jsx'; // Same as Login Page
-// import LoginPage from './containers/LoginPage.jsx'; // Same as Login Page
-// import LogoutFunction from './containers/LogoutFunction.jsx';
-// import SignUpPage from './containers/SignUpPage.jsx'; // Same as Login Page
-// import DashboardPage from './containers/DashboardPage.jsx';
 
 /////////////////////////////////////////////// /* CSS */ //////////////////////////////////////////////////////////
 // import './App.css';
+import "./index.css";
 /////////////////////////////////////////////// /* Main */ //////////////////////////////////////////////////////////
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={props => (
-    Auth.isUserAuthenticated() ? (
-      <Component {...props} {...rest} />
-    ) : (
-      <Redirect to={{
-        pathname: '/',
-        state: { from: props.location }
-      }}/>
-    )
-  )}/>
-);
+
+injectTapEventPlugin(); // remove tap delay, essential for MaterialUI to work properly
+const history = createBrowserHistory();
 
 
-
-
-/////////////////////////////////////////////// /* Export Class */ //////////////////////////////////////////////////////////
 class App extends Component {
-
-    constructor(props) {
-      super(props);
-      this.state = {
-        authenticated: false
-      }
-    };
-
-    componentDidMount() {
-      // check if user is logged in on refresh
-      this.toggleAuthenticateStatus()
-    }
-
-    toggleAuthenticateStatus() {
-      // check authenticated status and toggle state based on that
-      this.setState({ authenticated: Auth.isUserAuthenticated() })
-    }
 
     render() {
         return (
-            <Router>
-                <switch>
-                    <Route exact path="/" component={About}/>
-                    <Route path="/login" component={LoginPage}/>
-                    <Route path="/community" component={Community}/>
-                    <Route path="/timeline" component={Timeline}/>
-                </switch>
-            </Router>
+            <MuiThemeProvider muiTheme={getMuiTheme()}>
+                <Router history={history}>
+                    <switch>
+                        <Route exact path="/" component={AuthenticationPage}/>
+                        <Route exact path="/authenticationpage" component={AuthenticationPage}/>
+                        <Route path="/about" component={About}/>
+                        <Route path="/community" component={Community}/>
+                        <Route path="/timeline" component={Timeline}/>
+                    </switch>
+                </Router>
+            </MuiThemeProvider>
         );
     }
 }
