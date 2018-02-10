@@ -9,6 +9,7 @@ const bodyParser = require ('body-parser'); // JSON Middleware
 // const logger = require('morgan'); // REST Logger
 
 
+
 /////////////////////////////////////////////// /* Initialize Express */ //////////////////////////////////////////////////////////
 let app = express();
 
@@ -23,22 +24,21 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 const mongoose = require('mongoose'); // MongoDB ORM
 mongoose.Promise = global.Promise; // Set up promises with mongoose
 const mongooseConnection = mongoose.connection;
-const db = require("./models"); // Sequelize Models
+const db = require("./models");
+const routes = require("./routes");
 
 
-
-mongoose.connect( // Connect to the Mongo DB  Use this after Project 3 Completion. mongodb://heroku_fq360rd6:1cbk0mc9u31mqeutipesfj0ur2@ds229458.mlab.com:29458/heroku_fq360rd6
-  process.env.MONGODB_URI ||"mongodb://heroku_fq360rd6:1cbk0mc9u31mqeutipesfj0ur2@ds229458.mlab.com:29458/heroku_fq360rd6",
-
-  {
-    useMongoClient: true
-  }
+mongoose.connect( // Connect to the Mongo DB
+    process.env.MONGODB_URI ||"mongodb://test:test@ds123718.mlab.com:23718/heroku_0g1bl4gg",
+    {
+        useMongoClient: true
+    }
 );
 
 mongooseConnection.on("error", console.error.bind(console, "connection error:"));
 
 mongooseConnection.once("open", function() {
-  console.log("Sucessfully Connected to Mongo DB !"); // If Connection is successful, Console.log(Message)
+    console.log("Sucessfully Connected to Mongo DB !"); // If Connection is successful, Console.log(Message)
 });
 
 
@@ -61,18 +61,33 @@ app.use('/auth', authRoutes);
 /////////////////////////////////////////////// /* Cross Origin Settings */ //////////////////////////////////////////////////////////
 var cors = require("cors");
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
 });
 app.use(cors());
 
 // Image Upload Route
 app.post("/api/upload", function(req, res) {
-  console.log("Submit Images Path hit");
-  console.log(req.body);
-  res.json({name: 'tom'})
+    console.log("Submit Images Path hit");
+    console.log(req.body)
+    console.log(req.body.title);
+    console.log(req.body.notes);
+
+    // res.json({name: 'tom'})
+    db.Image.create({
+        image: req.body.base64,
+        title: req.body.title,
+        notes: req.body.notes
+    })
+        .then(function(dbImage){
+            console.log(dbImage);
+        })
+        .catch(function(err){
+            console.log(err.message);
+        })
 });
+
 
 
 
@@ -80,9 +95,18 @@ app.post("/api/upload", function(req, res) {
 let PORT = process.env.PORT || 8080;
 app.listen(PORT, (error) => {
     if (!error) {
-        console.log("listening on port", PORT);
-    } else {
-        console.error(error)
-        throw error;
-    }
+    console.log("listening on port", PORT);
+} else {
+    console.error(error)
+    throw error;
+}
 });
+
+
+// db.Image.create({ title: 'test2000'})
+// .then(function(dbImage){
+//     console.log(dbImage);
+// })
+// .catch(function(err){
+//     console.log(err.message);
+// })
