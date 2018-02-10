@@ -6,8 +6,6 @@ import UploadModal from "../../components/UploadModal/UploadModal"
 import API from '../../utils/API.js'
 import TimelineImage from  '../../components/TimelineImage'
 
-
-
 class Timeline extends Component {
 
   constructor() {
@@ -44,7 +42,7 @@ class Timeline extends Component {
 
       <nav className="teal accent-4" role="navigation">
         {/* <Pixupload /> */}
-        {/* <UploadModal /> */}
+        <UploadModal />
         <div className="nav-wrapper container">
           <ul id="nav-mobile" className="side-nav">
             <li>
