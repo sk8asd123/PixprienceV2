@@ -9,10 +9,14 @@
 }
 .container
 {
-  width:100%;
-  height:100%;
+  width: 100% !important;
+  height:100% !important;
   padding:50px;
+  background-color: rgba(0,0,0,0) !important;
+  text-align: center;
 }
+
+
 .container-inside
 {
   width:80vw;
@@ -120,6 +124,11 @@
 .inputs-cont,.inputs-cont2{
   width:80%;
   margin: 50px auto auto auto !important;
+}
+
+label{
+    background-color: rgba(0,0,0,0) !important;
+    color: white !important;
 }
 .input-label
 {
