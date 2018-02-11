@@ -10,13 +10,16 @@ const LoginForm = ({
   onSubmit,
   onChange,
   errors,
-  user
+  user,
+  successMessage,
+  redirectUser
 }) => (
   <Card className="container">
     <form action="/" onSubmit={onSubmit}>
       <h2 className="card-heading" style={{'color': 'white'}}>Login</h2>
 
-      {errors.summary && <p className="error-message" style={{'margin-top': '40px', 'text-align':'center', 'color':'white'}}>{errors.summary}</p>}
+      {successMessage && <p className="success-message" style={{'margin-top': '40px', 'text-align':'center', 'color':'white'}}>{successMessage}</p>}
+      {errors.summary && <p className="error-message" style={{'margin-top': '20px', 'text-align':'center', 'color':'white'}}>{errors.summary}</p>}
 
       <div className="field-line">
         <TextField
@@ -25,6 +28,7 @@ const LoginForm = ({
           errorText={errors.email}
           onChange={onChange}
           value={user.email}
+          className="overideActive overideColor"
         />
       </div>
 
@@ -36,6 +40,7 @@ const LoginForm = ({
           onChange={onChange}
           errorText={errors.password}
           value={user.password}
+          className="overideActive overideColor"
         />
       </div>
 
@@ -43,7 +48,7 @@ const LoginForm = ({
         <RaisedButton type="submit" label="Log in" primary />
       </div>
 
-      <CardText style={{'margin-top': '20px'}}>Don't have an account? <Link to={'/signup'}>Create one</Link>.</CardText>
+      <CardText style={{'margin-top': '20px'}}>Don't have an account? <span className="hover" href='#' onClick={()=>redirectUser(true)}>Create one.</span></CardText>
     </form>
   </Card>
 );

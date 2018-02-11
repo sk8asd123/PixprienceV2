@@ -217,6 +217,24 @@ input[type="checkbox"]:checked:after {
   cursor:pointer;
 }
 
-.overideActive {
-  background-color: rgba(0,0,0,0)
+.overideActive label{
+  background-color: rgba(0,0,0,0) !important;
+  color: white !important;
+}
+
+.overideColor input{
+  color: white !important;
+}
+
+
+.hover{
+  color: #2086bf;
+  transition: color 0.5s ease-in-out;
+  cursor: pointer;
+
+}
+
+.hover:hover{
+  color: white;
+  cursor: pointer;
 }
