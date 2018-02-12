@@ -6,7 +6,7 @@ import TextField from 'material-ui/TextField';
 import PropTypes from 'prop-types';
 
 
-const SignUpForm = ({onSubmit, onChange, errors, user}) => (
+const SignUpForm = ({onSubmit, onChange, errors, user, redirectUser}) => (
   <Card className="container">
     <form action="/" onSubmit={onSubmit}>
       <h2 className="card-heading" style={{'color': 'white'}}>Sign Up</h2>
@@ -20,7 +20,7 @@ const SignUpForm = ({onSubmit, onChange, errors, user}) => (
           errorText={errors.firstName}
           onChange={onChange}
           value={user.firstName}
-          className="input-label hidden "
+          className="input-label hidden overideActive overideColor"
         />
       </div>
 
@@ -31,7 +31,7 @@ const SignUpForm = ({onSubmit, onChange, errors, user}) => (
           errorText={errors.lastName}
           onChange={onChange}
           value={user.lastName}
-          className="input-label hidden "
+          className="input-label hidden overideActive overideColor"
         />
       </div>
 
@@ -42,7 +42,7 @@ const SignUpForm = ({onSubmit, onChange, errors, user}) => (
           errorText={errors.email}
           onChange={onChange}
           value={user.email}
-          className="input-label hidden"
+          className="input-label hidden overideActive overideColor"
         />
       </div>
 
@@ -54,7 +54,7 @@ const SignUpForm = ({onSubmit, onChange, errors, user}) => (
           onChange={onChange}
           errorText={errors.password}
           value={user.password}
-          className="input-label hidden"
+          className="input-label hidden overideActive overideColor"
         />
       </div>
 
@@ -63,7 +63,7 @@ const SignUpForm = ({onSubmit, onChange, errors, user}) => (
         <RaisedButton type="submit" label="Create New Account" primary />
       </div>
 
-      <CardText style={{'margin-top': '20px'}}>Already have an account? <Link to={'/login'}>Log in</Link></CardText>
+      <CardText style={{'margin-top': '20px'}}>Already have an account? <span className="hover" href='#' onClick={()=>redirectUser(true)}>Log in</span></CardText>
     </form>
   </Card>
 );

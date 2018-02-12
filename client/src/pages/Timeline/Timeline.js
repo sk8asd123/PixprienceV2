@@ -5,6 +5,8 @@ import Pixupload from "../../components/Upload/Pixuploader"
 import UploadModal from "../../components/UploadModal/UploadModal"
 import API from '../../utils/API.js'
 import TimelineImage from  '../../components/TimelineImage'
+import Auth from '../../modules/Auth';
+import NavLogin from '../../components/NavBar';
 
 class Timeline extends Component {
 
@@ -12,7 +14,8 @@ class Timeline extends Component {
     super();
 
     this.state = {
-      images: []
+      images: [],
+      secretData: '' //Authentication
     }
 
   } // End of Constructor
@@ -20,6 +23,26 @@ class Timeline extends Component {
   componentWillMount() {
     this.fetchCommunityImages();
   }
+
+  /////////////////////////////////////////////// /* Authentication */ //////////////////////////////////////////////////////////
+  componentDidMount() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('get', '/api/timeline');
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  // set the authorization HTTP header
+  xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', () => {
+    if (xhr.status === 200) {
+      this.setState({
+        secretData: xhr.response.message
+      });
+    }
+  });
+  xhr.send();
+}
+
+/////////////////////////////////////////////// /* */ //////////////////////////////////////////////////////////
 
   fetchCommunityImages() { // Function to Fetch Community Images
 
@@ -39,6 +62,7 @@ class Timeline extends Component {
     return (
 
       <div>
+      <NavLogin/>
 
       <nav className="teal accent-4" role="navigation">
         {/* <Pixupload /> */}
@@ -67,7 +91,7 @@ class Timeline extends Component {
             <div className="carousel" id="imageCarousel">
 
              { this.state.images.map((imageLink)  =>   <a className="carousel-item"><TimelineImage  image={imageLink} /></a>)}
-            
+
           </div>
         </div>
         <br/><br/>

@@ -244,7 +244,7 @@ class Pixupload extends React.Component {
             notes: this.state.notes
         }
 
-        axios.post('/api/upload', data)
+        axios.post('/test/upload', data)
             .then(function(response) {
                 console.log(response);
             })

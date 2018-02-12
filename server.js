@@ -1,107 +1,75 @@
-/*jslint node: true */
-/*jslint es6 */
+/* jslint node: true */
+/* jslint es6 */
 "use strict";
 
-/////////////////////////////////////////////// /* Imports */ //////////////////////////////////////////////////////////
+/////////////////////////////////////////////// /* Imports */ ////////////////////////////////////////////////////////
 const express = require('express'); // Server
-const bodyParser = require ('body-parser'); // JSON Middleware
+const bodyParser = require('body-parser'); // JSON Middleware
+const passport = require('passport');
+const config = require('./config');
 
-// const logger = require('morgan'); // REST Logger
+// const logger = require('morgan');  REST Logger
 
-
-
-/////////////////////////////////////////////// /* Initialize Express */ //////////////////////////////////////////////////////////
+/////////////////////////////////////////////// /* Initialize Express */ ////////////////////////////////////////////////////////
 let app = express();
+let PORT = process.env.PORT || 8080;
 
-/////////////////////////////////////////////// /* Express Middleware */ //////////////////////////////////////////////////////////
+/////////////////////////////////////////////// /* Express Middleware */ ////////////////////////////////////////////////////////
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true})); // Allows For JSON Interactions Between Client & Server
-app.use(express.static("client/build")); // Serve Static / React Pages
+app.use(express.static("client/build")); // Serve Static React Pages
 app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-
-////////////////////////////////////////////// /* Mongoose Configurations*/ //////////////////////////////////////////////////////////
-const mongoose = require('mongoose'); // MongoDB ORM
-mongoose.Promise = global.Promise; // Set up promises with mongoose
-const mongooseConnection = mongoose.connection;
-const db = require("./models");
-const routes = require("./routes");
+app.use(bodyParser.json({type: "application/vnd.api+json"}));
 
 
-mongoose.connect( // Connect to the Mongo DB
-    process.env.MONGODB_URI ||"mongodb://test:test@ds123718.mlab.com:23718/heroku_0g1bl4gg",
-    {
-        useMongoClient: true
-    }
-);
-
-mongooseConnection.on("error", console.error.bind(console, "connection error:"));
-
-mongooseConnection.once("open", function() {
-    console.log("Sucessfully Connected to Mongo DB !"); // If Connection is successful, Console.log(Message)
-});
+require('./models').connect(config.dbUri); // connect to the database and load models
 
 
-/////////////////////////////////////////////// /* Routes */ //////////////////////////////////////////////////////////
-// Authenication Routes //
+/////////////////////////////////////////////// /* Passport Authentication */ //////////////////////////////////////////////////////////
+// load passport strategies
+const localSignupStrategy = require('./passport/local-signup');
+const localLoginStrategy = require('./passport/local-login');
+passport.use('local-signup', localSignupStrategy);
+passport.use('local-login', localLoginStrategy);
+
+// pass the authenticaion checker middleware //
+const authCheckMiddleware = require('./middleware/auth-check');
+
+
+/////////////////////////////////////////////// /* Routes */ ////////////////////////////////////////////////////////
+
 const authRoutes = require('./routes/auth');
+const apiRoutes = require('./routes/api');
 app.use('/auth', authRoutes);
+app.use('/api', apiRoutes);
+app.use('/api', authCheckMiddleware);
 
-/////////////////////////////////////////////// /* Passport */ //////////////////////////////////////////////////////////
 
-// Passport Validation //
-// const passport = require('passport');
-
-// load passport strategies //
-// const localSignupStrategy = require('./passport/localSignup');
-// const localLoginStrategy = require('./passport/localLogin');
-// passport.use('local-signup', localSignupStrategy);
-// passport.use('local-login', localLoginStrategy);
-
-/////////////////////////////////////////////// /* Cross Origin Settings */ //////////////////////////////////////////////////////////
+/////////////////////////////////////////////// /* Cross Origin Settings */ ////////////////////////////////////////////////////////
 var cors = require("cors");
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
 app.use(cors());
 
+/////////////////////////////////////////////// /* Hard Coded Routes */ //////////////////////////////////////////////////////////
+const db = require("./models"); // Sequelize Models
 // Image Upload Route
-app.post("/api/upload", function(req, res) {
-    console.log("Submit Images Path hit");
-    console.log(req.body)
-    console.log(req.body.title);
-    console.log(req.body.notes);
+app.post("/test/upload", function(req, res) {
+  console.log("Submit Images Path hit");
+  console.log(req.body)
+  console.log(req.body.title);
+  console.log(req.body.notes);
 
-    // res.json({name: 'tom'})
-    db.Image.create({
-        image: req.body.base64,
-        title: req.body.title,
-        notes: req.body.notes
-    })
-        .then(function(dbImage){
-            console.log(dbImage);
-        })
-        .catch(function(err){
-            console.log(err.message);
-        })
+  // res.json({name: 'tom'})
+  db.Image.create({image: req.body.base64, title: req.body.title, notes: req.body.notes}).then(function(dbImage) {
+    console.log(dbImage);
+  }).catch(function(err) {
+    console.log(err.message);
+  })
 });
-
-
-
-
-/////////////////////////////////////////////// /* Start Server */ //////////////////////////////////////////////////////////
-let PORT = process.env.PORT || 8080;
-app.listen(PORT, (error) => {
-    if (!error) {
-    console.log("listening on port", PORT);
-} else {
-    console.error(error)
-    throw error;
-}
-});
-
 
 // db.Image.create({ title: 'test2000'})
 // .then(function(dbImage){
@@ -110,3 +78,14 @@ app.listen(PORT, (error) => {
 // .catch(function(err){
 //     console.log(err.message);
 // })
+
+
+/////////////////////////////////////////////// /* Start Server */ ////////////////////////////////////////////////////////
+app.listen(PORT, (error) => {
+  if (!error) {
+    console.log("listening on port", PORT);
+  } else {
+    console.error(error)
+    throw error;
+  }
+});
