@@ -80,7 +80,8 @@ class LoginPage extends React.Component {
             // change the current URL to /
             // this.props.history.push('/');
             this.props.redirectToTimeline(true);
-           console.log('The form is valid');
+            console.log('The form is valid');
+            window.localStorage.setItem('userEmail', this.state.user.email);
          } else {
            // failure
 
