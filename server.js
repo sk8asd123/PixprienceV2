@@ -56,9 +56,9 @@ app.use(cors());
 
 /////////////////////////////////////////////// /* Hard Coded Routes */ //////////////////////////////////////////////////////////
 const db = require("./models"); // Sequelize Models
-// Image Upload Route
+// images Upload Route
 app.post("/test/upload", function(req, res) {
-  console.log("Submit Images Path hit");
+  console.log("Submit imagess Path hit");
   console.log(req.body)
   console.log(req.body.title);
   console.log(req.body.notes);
@@ -71,9 +71,24 @@ app.post("/test/upload", function(req, res) {
   })
 });
 
-// db.Image.create({ title: 'test2000'})
-// .then(function(dbImage){
-//     console.log(dbImage);
+app.get("/test/images", function(req, res) {
+  console.log("images path hit.")
+  db.Image.find({}, function(err, found) {
+
+    // Log any errors if the server encounters one
+    if (err) {
+      console.log(err);
+    }
+    // Otherwise, send the result of this query to the browser
+    else {
+      res.json(found);
+    }
+  });
+});
+
+// db.images.create({ title: 'test2000'})
+// .then(function(dbimages){
+//     console.log(dbimages);
 // })
 // .catch(function(err){
 //     console.log(err.message);
