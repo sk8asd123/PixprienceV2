@@ -44,6 +44,8 @@ class Timeline extends Component {
     }
   });
   xhr.send();
+
+              console.log(window.localStorage.getItem('userEmail'));
 }
 
 /////////////////////////////////////////////// /* */ //////////////////////////////////////////////////////////
@@ -71,7 +73,7 @@ class Timeline extends Component {
           });
 
           console.log(this.state.timeline_images)
-          
+
         })
         .catch(function (error) {
           console.log(error);
@@ -101,14 +103,14 @@ class Timeline extends Component {
         <div className="container">
           <br/><br/>
           <h1 className="header center blue-grey-text">Welcome to your timeline</h1>
-          { this.state.timeline_images.map((base64_image) => <a className="carousel-item"> <img src={base64_image.image} style={{width: 304, height: 228}}  alt="Image" /> </a>)}         
+          { this.state.timeline_images.map((base64_image) => <a className="carousel-item"> <img src={base64_image.image} style={{width: 304, height: 228}}  alt="Image" /> </a>)}
         </div>
       </div>
-    
-    <div className="carousel" id="imageCarousel">   
-      
+
+    <div className="carousel" id="imageCarousel">
+
     </div>
-    
+
     </div>
     );
   }
