@@ -72,7 +72,7 @@ app.post("/test/upload", function(req, res) {
     console.log(err.message);
   })
 });
-
+// Delete After Paige Adds Email To IMage Field
 app.get("/test/images", function(req, res) {
   console.log("images path hit.")
   db.Image.find({}, function(err, found) {
@@ -87,6 +87,24 @@ app.get("/test/images", function(req, res) {
     }
   });
 });
+
+// Uncomment After Paige Adds Email
+// app.get("/test/images", function(req, res) {
+//   console.log("images path hit.")
+//   console.log(req.query.email);
+//   db.Image.find({ 'email': req.query.email }, function(err, found) {
+//     console.log(found)
+//     // console.log("images of user with "+ email +" found.")
+//     // Log any errors if the server encounters one
+//     if (err) {
+//       console.log(err);
+//     }
+//     // Otherwise, send the result of this query to the browser
+//     else {
+//       res.json(found);
+//     }
+//   });
+// });
 
 // db.images.create({ title: 'test2000'})
 // .then(function(dbimages){

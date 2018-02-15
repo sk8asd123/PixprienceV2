@@ -67,6 +67,8 @@ class Timeline extends Component {
 
   fetchTimelineImages() { // Function to Fetch Timeline Images
 
+    let clientEmail = localStorage.getItem('userEmail');
+    // axios.get('/test/images', {params: { email: clientEmail }})
     axios.get('/test/images')
         .then( response => {
           // console.log(response)
