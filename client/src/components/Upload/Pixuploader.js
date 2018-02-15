@@ -203,7 +203,7 @@ class Pixupload extends React.Component {
             //photos: [
             img: [],
             notes: "",
-            title: "",
+            title: ""
             // file = this.fileInput.files[0],
             // fileName = file.name,
             // loc = this.textInput;
@@ -241,7 +241,8 @@ class Pixupload extends React.Component {
         var data = {
             base64: this.state.img[0].base64,
             title: this.state.title,
-            notes: this.state.notes
+            notes: this.state.notes,
+            userEmail: localStorage.getItem('userEmail') || null
         }
 
         axios.post('/test/upload', data)

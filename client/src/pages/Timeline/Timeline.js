@@ -48,10 +48,7 @@ class Timeline extends Component {
   });
   xhr.send();
 
-
   console.log(window.localStorage.getItem('userEmail')); // Code to Get userEmail so that you can query the backed by email ID
-
-}
 
 /////////////////////////////////////////////// /* Fetching Images */ //////////////////////////////////////////////////////////
 
