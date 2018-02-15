@@ -46,7 +46,7 @@ class Timeline extends Component {
   });
   xhr.send();
 
-  // console.log(window.localStorage.getItem('userEmail'));
+  console.log(window.localStorage.getItem('userEmail'));
 }
 
 /////////////////////////////////////////////// /* Fetching Images */ //////////////////////////////////////////////////////////
