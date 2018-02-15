@@ -23,6 +23,31 @@ class SignUpPage extends Component {
 
     this.processForm = this.processForm.bind(this);
     this.changeUser = this.changeUser.bind(this);
+    this.redirectUser = this.redirectUser.bind(this);
+  }
+
+
+  redirectUser(value){
+
+    if(value === true){
+      this.props.redirectToLogin(true)
+    }
+
+  }
+
+  /**
+   * Change the user object.
+   *
+   * @param {object} event - the JavaScript event object
+   */
+  changeUser(event) {
+    const field = event.target.name;
+    const user = this.state.user;
+    user[field] = event.target.value;
+
+    this.setState({
+      user
+    });
   }
 
   /**
@@ -74,6 +99,12 @@ class SignUpPage extends Component {
        this.setState({
          errors: {}
        });
+       // set a message
+       localStorage.setItem('successMessage', xhr.response.message);
+
+
+       // this.props.history.push('/login');
+       this.props.redirectToLogin(true)
 
        console.log('The form is valid');
      } else {
@@ -103,6 +134,7 @@ class SignUpPage extends Component {
           onChange={this.changeUser}
           errors={this.state.errors}
           user={this.state.user}
+          redirectUser = {this.redirectUser}
         />
       </Fragment>
     );

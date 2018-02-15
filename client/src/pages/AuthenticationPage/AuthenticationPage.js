@@ -1,5 +1,7 @@
 /////////////////////////////////////////////// /* Imports */ //////////////////////////////////////////////
-import React, {Component, Fragment} from 'react';
+import React, { PropTypes, Fragment, Component} from 'react';
+import { Route, NavLink, Redirect, withRouter, Link, Switch, BrowserRouter as Router, hashHistory} from "react-router-dom";
+import { browserHistory } from 'react-router';
 import ReactDom from 'react-dom';
 
 /////////////////////////////////////////////// /* Components */ //////////////////////////////////////////////
@@ -15,12 +17,56 @@ import './LoginPage.nested.css'
 
 export default class AuthenticationPage extends Component {
 
-  state = {
+  constructor(props, context){
 
-    renderLogin : false,
-    renderSignUp: true
+    super(props, context);
 
-  };
+    this.state = {
+
+      renderLogin : false,
+      renderSignUp: true
+
+    };
+
+    this.redirectToLogin = this.redirectToLogin.bind(this);
+    this.redirectToSignUp = this.redirectToSignUp.bind(this);
+    this.redirectToTimeline = this.redirectToTimeline.bind(this);
+
+  }
+
+  redirectToTimeline(value){
+    console.log("redircet to timeline called");
+
+    if(value === true){
+      this.props.history ?  this.props.history.push('/') : window.location.reload();
+
+    }
+  }
+
+  redirectToLogin(value){
+
+    if(value === true){
+
+      this.setState({
+        renderLogin : true,
+        renderSignUp: false
+      })
+
+    }
+  }
+
+  redirectToSignUp(value){
+
+    if(value === true){
+
+      this.setState({
+        renderLogin : false,
+        renderSignUp: true
+      })
+
+    }
+  }
+
 
   componentDidMount() {
     let signIn = document.querySelector(".sign-in"),
@@ -76,7 +122,7 @@ export default class AuthenticationPage extends Component {
             </div>
 
             {
-              this.state.renderSignUp? <SignUpPage className="inputs-cont"/> :<LoginPage className="inputs-cont2"/>
+              this.state.renderSignUp? <SignUpPage className="inputs-cont" redirectToLogin={this.redirectToLogin}/> :<LoginPage className="inputs-cont2" redirectToTimeline={this.redirectToTimeline} redirectToSignUp={this.redirectToSignUp}/>
             }
 
 
