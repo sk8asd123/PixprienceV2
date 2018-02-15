@@ -29,6 +29,7 @@ class Timeline extends Component {
   }
 
   /////////////////////////////////////////////// /* Authentication */ //////////////////////////////////////////////////////////
+
   componentDidMount() {
   const xhr = new XMLHttpRequest();
   xhr.open('get', '/api/timeline');
@@ -45,10 +46,10 @@ class Timeline extends Component {
   });
   xhr.send();
 
-              console.log(window.localStorage.getItem('userEmail'));
+  // console.log(window.localStorage.getItem('userEmail'));
 }
 
-/////////////////////////////////////////////// /* */ //////////////////////////////////////////////////////////
+/////////////////////////////////////////////// /* Fetching Images */ //////////////////////////////////////////////////////////
 
   fetchCommunityImages() { // Function to Fetch Community Images
 
@@ -64,8 +65,8 @@ class Timeline extends Component {
   }
 
   fetchTimelineImages() { // Function to Fetch Timeline Images
-    // console.log(`THIS: ${this}`)
-    axios.get('/test/images')
+    let clientEmail = localStorage.getItem('userEmail');
+    axios.get('/test/images', {params: { email: clientEmail }})
         .then( response => {
           console.log(response)
           this.setState({
@@ -73,12 +74,13 @@ class Timeline extends Component {
           });
 
           console.log(this.state.timeline_images)
-
         })
         .catch(function (error) {
           console.log(error);
         });
   }
+
+  /////////////////////////////////////////////// /* Render */ //////////////////////////////////////////////////////////
 
   render() {
     return (
