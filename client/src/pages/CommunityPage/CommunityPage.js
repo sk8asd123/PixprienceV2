@@ -36,15 +36,32 @@ export default class CommunityPage extends Component {
 
   fetchCommunityImages() { // Function to Fetch Community Images
 
-    let fetchedimages = [];
+    let preloadImages = [];
+    let fetchedImages = [];
 
     for (let key in API.imageData) { // Get Images from API Ajax Call and Store into Variable fetchedImages
-      fetchedimages.push(API.imageData[key]);
+      preloadImages.push(API.imageData[key]);
     }
 
     this.setState(prevState => ({
-      images: [...prevState].concat(fetchedimages)
+      images: [...prevState].concat(preloadImages)
     }), () => console.log(this.state))
+
+    API.queryBackendGet('/community/images').then(imagesObject => {
+
+      console.log("Getting Images")
+      imagesObject.data.map(eachImageObject =>
+        fetchedImages.push(eachImageObject.image)
+      )
+
+      console.log("Fetched Images are " + fetchedImages)
+      this.setState(prevState => ({
+        images: fetchedImages
+      }), () => console.log(this.state))
+
+    })
+
+
   }
 
   render() {

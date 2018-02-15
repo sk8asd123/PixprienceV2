@@ -38,8 +38,10 @@ const authCheckMiddleware = require('./middleware/auth-check');
 
 const authRoutes = require('./routes/auth');
 const apiRoutes = require('./routes/api');
+const communityRoutes = require('./routes/community');
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
+app.use('/community', communityRoutes);
 app.use('/api', authCheckMiddleware);
 
 /////////////////////////////////////////////// /* Cross Origin Settings */ ////////////////////////////////////////////////////////
