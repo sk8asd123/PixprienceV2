@@ -3,8 +3,12 @@ import axios from "axios";
 /////////////////////////////////////////////// /* AJAX Calls*/ //////////////////////////////////////////////////////////
 export default {
 
-  queryBackend: function(path, payload) {
+  queryBackendGet: function(path, payload) {
     return axios.get(path, payload);
+  },
+
+  queryBackendPost: function(path, payload) {
+    return axios.post(path, payload);
   },
 
   imageData: {
