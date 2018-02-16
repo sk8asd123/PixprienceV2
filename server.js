@@ -60,10 +60,14 @@ const db = require("./models"); // Sequelize Models
 // images Upload Route
 app.post("/test/upload", function(req, res) {
   console.log("Submit imagess Path hit");
-  console.log(req.body)
+  console.log("BODY", req.body);
   console.log(req.body.title);
   console.log(req.body.notes);
+  console.log(req.body.userEmail);
 
+
+  var testImage = {image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail}
+  console.log(testImage);
   db.Image.create({image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail}).then(function(dbImage) {
     console.log(dbImage);
   }).catch(function(err) {
