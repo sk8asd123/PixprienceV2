@@ -38,7 +38,7 @@ export default class AuthenticationPage extends Component {
     console.log("redircet to timeline called");
 
     if(value === true){
-      this.props.history ?  this.props.history.push('/') : window.location.reload();
+      this.props.history ?  this.props.history.push('/timeline') : window.location.reload();
 
     }
   }

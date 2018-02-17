@@ -96,7 +96,7 @@ class Timeline extends Component {
     return (
 
       <div>
-      <NavLogin/>
+      <NavLogin active={this.props.active}/>
       <nav className="teal accent-4" role="navigation">
         {/* <Pixupload /> */}
         <UploadModal />
