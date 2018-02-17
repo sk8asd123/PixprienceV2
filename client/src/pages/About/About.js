@@ -15,8 +15,8 @@ class About extends React.Component {
 
 
   render() {
-    return (<Fragment>
-
+    return (
+    <Fragment>
       <Nav/>
       <div className="content">
         <section id="about-page">
@@ -25,8 +25,7 @@ class About extends React.Component {
               <Col s={12} className="center-align">
                 {/* Motto and About */}
                 <h3 class="section-heading">Our Motto</h3>
-                <h6 class="section-subheading">Discover You. Pictures that Tell Your Experience
-                </h6>
+                <h6 class="section-subheading">Discover You. Pictures that Tell Your Experience</h6>
                 <h3 class="section-heading">About</h3>
                 <h6 class="section-subheading">Pixperience was inspired to bring you your experiences in their purest form. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce iaculis magna eget urna tincidunt consectetur. Pellentesque blandit accumsan nunc, non ultrices arcu rhoncus sed. Ut sem enim, ornare vel euismod eget, congue sit amet odio. In efficitur convallis tristique. Sed iaculis felis et dui finibus posuere.</h6>
                 {/* Team Members Carousel */}
@@ -40,7 +39,6 @@ class About extends React.Component {
           </div>
         </section>
       </div>
-
     </Fragment>);
   }
 }
