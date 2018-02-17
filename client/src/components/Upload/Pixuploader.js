@@ -2,6 +2,7 @@ import React from "react";
 import FileBase64 from "react-file-base64";
 import axios from "axios";
 
+
 class Pixupload extends React.Component {
     constructor(props) {
         super(props);
@@ -13,10 +14,9 @@ class Pixupload extends React.Component {
             img: [],
             notes: "",
             title: "",
-            userEmail: this.clientEmail
+            userEmail: this.clientEmail,
+            imagePreviewUrl: null
         };
-
-
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChangeNotes = this.handleInputChangeNotes.bind(this);
@@ -27,12 +27,12 @@ class Pixupload extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-
         var data = {
             base64: this.state.img[0].base64,
             title: this.state.title,
             notes: this.state.notes,
-            userEmail: this.clientEmail}
+            userEmail: this.clientEmail
+        }
 
         axios.post("/test/upload", data)
             .then(function(response) {
@@ -52,13 +52,21 @@ class Pixupload extends React.Component {
         this.setState({title: e.target.value})
     }
     handleFileUpload(picture) {
+        console.log("fileupload" + JSON.stringify(this.state.img.concat(picture)[0].base64));
         this.setState({
             img: this.state.img.concat(picture),
+            imagePreviewUrl: this.state.img.concat(picture)[0].base64
         });
     }
 
 //CREATION OF THE FORM UI
     render() {
+        let {imagePreviewUrl} = this.state;
+        let $imagePreview = null;
+        if (imagePreviewUrl) {
+            $imagePreview = (<img src={this.state.imagePreviewUrl} />);
+        }
+
         console.log(this.state);
         return (
             <div>
@@ -67,6 +75,9 @@ class Pixupload extends React.Component {
                     onDone={ this.handleFileUpload.bind(this)}
                 />
                 <br />
+
+                <img src={imagePreviewUrl} />
+
                 <label>
                     Title:
                     <input
@@ -99,5 +110,6 @@ class Pixupload extends React.Component {
         );
     }
 }
+
 
 export default Pixupload
