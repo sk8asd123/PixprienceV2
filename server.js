@@ -78,7 +78,7 @@ app.post("/test/upload", function(req, res) {
 app.get("/test/images", function(req, res) {
   console.log("images path hit.")
   console.log(req.query.email);
-  db.Image.find({ 'userEmail': req.query.email }, function(err, found) {
+  db.Image.find({}, function(err, found) {
     console.log(found)
     // console.log("images of user with "+ email +" found.")
     // Log any errors if the server encounters one
