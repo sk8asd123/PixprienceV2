@@ -241,12 +241,6 @@ input[type="checkbox"]:checked:after {
 
 
 
-
-body {
-  /*To hide the horizontal scroller appearing during the animation*/
-  overflow: hidden;
-}
-
 #clouds{
   padding: 100px 0;
   background: #c9dbe9;
