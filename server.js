@@ -60,11 +60,15 @@ const db = require("./models"); // Sequelize Models
 // images Upload Route
 app.post("/test/upload", function(req, res) {
   console.log("Submit imagess Path hit");
-  console.log(req.body)
+  console.log("BODY", req.body);
   console.log(req.body.title);
   console.log(req.body.notes);
+  console.log(req.body.userEmail);
 
-  db.Image.create({image: req.body.base64, title: req.body.title, notes: req.body.notes}).then(function(dbImage) {
+
+  var testImage = {image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail}
+  console.log(testImage);
+  db.Image.create({image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail}).then(function(dbImage) {
     console.log(dbImage);
   }).catch(function(err) {
     console.log(err.message);
@@ -74,7 +78,7 @@ app.post("/test/upload", function(req, res) {
 app.get("/test/images", function(req, res) {
   console.log("images path hit.")
   console.log(req.query.email);
-  db.Image.find({ 'email': req.query.email }, function(err, found) {
+  db.Image.find({}, function(err, found) {
     console.log(found)
     // console.log("images of user with "+ email +" found.")
     // Log any errors if the server encounters one

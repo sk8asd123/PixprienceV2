@@ -1,4 +1,5 @@
 {
+
   "main.css": "static/css/main.cfffabc3.css",
   "main.css.map": "static/css/main.cfffabc3.css.map",
   "main.js": "static/js/main.1463d80a.js",
@@ -8,4 +9,5 @@
   "static/media/metro.svg": "static/media/metro.e0edbef9.svg",
   "static/media/metro.ttf": "static/media/metro.1db4b414.ttf",
   "static/media/metro.woff": "static/media/metro.f6b3b191.woff"
+
 }

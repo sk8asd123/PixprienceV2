@@ -15,8 +15,8 @@ class About extends React.Component {
 
 
   render() {
-    return (<Fragment>
-
+    return (
+    <Fragment>
       <Nav/>
       <div className="content">
         <section id="about-page">
@@ -25,7 +25,9 @@ class About extends React.Component {
               <Col s={12} className="center-align">
                 {/* Motto and About */}
                 <h3 class="section-heading">Our Motto</h3>
+      
                 <h6 class="section-subheading">Pixprience is your life. Real life. Uncurated. Unfiltered. Unfollowed.</h6>
+
                 <h3 class="section-heading">About</h3>
                 <h6 class="section-subheading">Pixperience was inspired to bring you your experiences in their purest form.</h6>
                 {/* Team Members Carousel */}
@@ -39,7 +41,6 @@ class About extends React.Component {
           </div>
         </section>
       </div>
-
     </Fragment>);
   }
 }

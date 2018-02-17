@@ -19,7 +19,7 @@ const imageSchema = new Schema({
     },
     dateAdded: {
         type: Date,
-        default: Date.now,
+        default: Date.now
     },
     latitude: {
         type: String,
@@ -32,6 +32,10 @@ const imageSchema = new Schema({
     share: {
         type: Boolean,
         default: true
+    },
+    userEmail: {
+        type: String,
+        trim: true
     }
 });
 
