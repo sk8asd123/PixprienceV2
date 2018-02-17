@@ -25,9 +25,9 @@ class About extends React.Component {
               <Col s={12} className="center-align">
                 {/* Motto and About */}
                 <h3 class="section-heading">Our Motto</h3>
-                <h6 class="section-subheading">Rediscover You. Pictures that show your experiences</h6>
+                <h6 class="section-subheading">Pixprience is your life. your real life. Uncurated. Unfiltered. Unfollowed.</h6>
                 <h3 class="section-heading">About</h3>
-                <h6 class="section-subheading">Pixprience is your life. your real life. Uncurated. Unfiltered. Unfollowed. Pixperience was inspired to bring you your experiences in their purest form. </h6>
+                <h6 class="section-subheading">Pixperience was inspired to bring you your experiences in their purest form. Use picprience and rediscover You.</h6>
                 {/* Team Members Carousel */}
                 <h3 class="section-heading">Meet the Team</h3>
                 <h6 class="section-subheading">The behind your Pixperience experience</h6>
