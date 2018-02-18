@@ -97,20 +97,6 @@ class Timeline extends Component {
 
       <div>
       <NavLogin active={this.props.active}/>
-      <nav className="teal accent-4" role="navigation">
-        {/* <Pixupload /> */}
-        <UploadModal />
-        <div className="nav-wrapper container">
-          <ul id="nav-mobile" className="side-nav">
-            <li>
-              <a href="#">#3651</a>
-            </li>
-          </ul>
-          <a href="#" data-activates="nav-mobile" className="button-collapse">
-            <i className="material-icons">menu</i>
-          </a>
-        </div>
-      </nav>
       <div className="section no-pad-bot" id="index-banner">
         <div className="container">
           <br/><br/>
