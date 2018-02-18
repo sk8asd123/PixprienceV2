@@ -265,7 +265,6 @@ input[type="checkbox"]:checked:after {
   position: relative;
 }
 
-
 .cloud:before, .cloud:after {
   content: '';
   position: absolute;
@@ -287,14 +286,11 @@ input[type="checkbox"]:checked:after {
   top: -55px; left: auto; right: 15px;
 }
 
-
-
 .x1 {
   -webkit-animation: moveclouds 15s linear infinite;
   -moz-animation: moveclouds 15s linear infinite;
   -o-animation: moveclouds 15s linear infinite;
 }
-
 
 .x2 {
   left: 200px;
@@ -347,5 +343,19 @@ input[type="checkbox"]:checked:after {
   -webkit-animation: moveclouds 20s linear infinite;
   -moz-animation: moveclouds 20s linear infinite;
   -o-animation: moveclouds 20s linear infinite;
+}
+
+
+@-webkit-keyframes moveclouds {
+  0% {margin-left: 1000px;}
+  100% {margin-left: -1000px;}
+}
+@-moz-keyframes moveclouds {
+  0% {margin-left: 1000px;}
+  100% {margin-left: -1000px;}
+}
+@-o-keyframes moveclouds {
+  0% {margin-left: 1000px;}
+  100% {margin-left: -1000px;}
 }
 

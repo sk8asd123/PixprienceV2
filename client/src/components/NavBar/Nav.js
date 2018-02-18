@@ -16,7 +16,7 @@ export default class Nav extends Component {
         (
           <Navbar className="header" style={{"background-color": "black"}}>
             <ul>
-              <li className="right"><NavLink to="/logout">logout</NavLink></li>
+              <li className="right"><NavLink to="/logout">Logout</NavLink></li>
               <li className="right"><NavLink to="/community">Community</NavLink></li>
               <li className="right"><NavLink to="/mappage">Map</NavLink></li>
               <li className="right" ><NavLink exact to="/">Timeline</NavLink></li>
