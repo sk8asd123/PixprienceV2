@@ -345,6 +345,7 @@ input[type="checkbox"]:checked:after {
   -o-animation: moveclouds 20s linear infinite;
 }
 
+
 @-webkit-keyframes moveclouds {
   0% {margin-left: 1000px;}
   100% {margin-left: -1000px;}
@@ -357,3 +358,4 @@ input[type="checkbox"]:checked:after {
   0% {margin-left: 1000px;}
   100% {margin-left: -1000px;}
 }
+
