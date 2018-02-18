@@ -333,7 +333,7 @@ input[type="checkbox"]:checked:after {
 }
 
 .x5 {
-  left: -150px; top: -150px;
+  left: 4550px; bottom: -250px;
 
   -webkit-transform: scale(0.8);
   -moz-transform: scale(0.8);
@@ -345,6 +345,44 @@ input[type="checkbox"]:checked:after {
   -o-animation: moveclouds 20s linear infinite;
 }
 
+.x6 {
+   left: 400px; top: -150px;
+
+   -webkit-transform: scale(0.8);
+   -moz-transform: scale(0.8);
+   transform: scale(0.8);
+   opacity: 0.8;
+
+   -webkit-animation: moveclouds 15s linear infinite;
+   -moz-animation: moveclouds 15s linear infinite;
+   -o-animation: moveclouds 15s linear infinite;
+ }
+
+.x7 {
+  left: 450px; bottom: 100px;
+
+  -webkit-transform: scale(0.75);
+  -moz-transform: scale(0.75);
+  transform: scale(0.75);
+  opacity: 0.75;
+
+  -webkit-animation: moveclouds 17s linear infinite;
+  -moz-animation: moveclouds 17s linear infinite;
+  -o-animation: moveclouds 17s linear infinite;
+}
+
+.x8 {
+  left: 500px; bottom: 120px;
+
+  -webkit-transform: scale(0.75);
+  -moz-transform: scale(0.75);
+  transform: scale(0.75);
+  opacity: 0.75;
+
+  -webkit-animation: moveclouds 18s linear infinite;
+  -moz-animation: moveclouds 18s linear infinite;
+  -o-animation: moveclouds 18s linear infinite;
+}
 
 @-webkit-keyframes moveclouds {
   0% {margin-left: 1000px;}

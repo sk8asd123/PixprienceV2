@@ -107,12 +107,15 @@ export default class AuthenticationPage extends Component {
           <div class="cloud x3"></div>
           <div class="cloud x4"></div>
           <div class="cloud x5"></div>
+          <div class="cloud x6"></div>
+          <div class="cloud x7"></div>
+          <div class="cloud x8"></div>
         </div>
         <section className="container-inside" style={{"z-index": "1000 !important"}}>
           {/* Left Container */}
-          <div className="left-side">
-            <img src="https://images.pexels.com/photos/598917/pexels-photo-598917.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb" className="left-img" title="sign up now and save 1200$"/>
-          </div>
+          {/*<div className="left-side">*/}
+            {/*<img src="https://images.pexels.com/photos/598917/pexels-photo-598917.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb" className="left-img" title="sign up now and save 1200$"/>*/}
+          {/*</div>*/}
           {/* Right Container */}
           <div className="right-side">
             <div className="buttons-container">
