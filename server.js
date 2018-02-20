@@ -70,8 +70,10 @@ app.post("/test/upload", function(req, res) {
   console.log(testImage);
   db.Image.create({image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail}).then(function(dbImage) {
     console.log(dbImage);
+    console.log("image databse hit")
   }).catch(function(err) {
     console.log(err.message);
+    console.log("there is an error")
   })
 });
 // Delete After Paige Adds Email To IMage Field
